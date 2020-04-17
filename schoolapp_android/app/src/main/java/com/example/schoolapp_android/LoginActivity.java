@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     public void btnClr_onClick(View view){  //清除按钮
         txt_usr.setText("");
         til_pwd.setVisibility(View.GONE);
-
+        txt_usr.setEnabled(true);
 
     }
     public void btnNext_onClick(View view) {    //下一步按钮

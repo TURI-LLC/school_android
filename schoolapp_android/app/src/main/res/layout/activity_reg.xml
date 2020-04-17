@@ -21,7 +21,7 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/welcome_text" />
+        tools:text="注册" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -42,7 +42,7 @@
             android:id="@+id/lbl_zenText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="为大学生活做减法。"
+            android:text="请完善您的个人信息。"
             android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -59,8 +59,8 @@
                 android:id="@+id/txt_user"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="学号/手机号/邮箱"
-                android:inputType="textPersonName|textAutoComplete|textEmailAddress"
+                android:hint="学号"
+                android:inputType="number"
                 android:singleLine="true"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -92,7 +92,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="145dp"
-            android:visibility="gone"
             app:passwordToggleEnabled="true"
             app:startIconDrawable="@drawable/lock_black">
 
@@ -105,45 +104,15 @@
                 android:inputType="textWebPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageButton
-            android:id="@+id/btn_next"
-            android:tooltipText="下一步"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="250dp"
-            android:background="@drawable/btn_next"
-            android:elevation="10dp"
-            android:onClick="btnNext_onClick"
-            android:src="@drawable/arrow_forward" />
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#2196F3"
+        android:src="@drawable/arrow_forward"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/btn_reg"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="66dp"
-            android:layout_height="40dp"
-            android:onClick="btnReg_onClick"
-            android:text="注册"
-            android:textColor="#fff"
-            android:textSize="18sp" />
-
-        <Button
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_marginLeft="100dp"
-            android:layout_width="66dp"
-            android:layout_height="40dp"
-            android:text="帮助"
-            android:textColor="#fff"
-            android:textSize="18sp" />
-
-    </LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
