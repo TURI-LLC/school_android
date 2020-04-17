@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#000000">
+    android:background="@drawable/back_shape">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -58,6 +58,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="55dp"
         android:hint="学号/手机号/邮箱"
+        android:background="@drawable/translucent"
         />
 
     <EditText
@@ -66,6 +67,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="55dp"
         android:hint="密码"
+        android:background="@drawable/translucent"
         />
 
     <Button
