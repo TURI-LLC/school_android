@@ -16,12 +16,11 @@
         android:layout_marginBottom="20dp"
         android:textStyle="bold"
         android:typeface="sans"
-        android:text="@string/welcome_text"
+        android:text="@string/app_name"
         android:textColor="#FFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/welcome_text" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -59,7 +58,7 @@
                 android:id="@+id/txt_user"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="学号/手机号/邮箱"
+                android:hint="用户名/手机号/邮箱"
                 android:inputType="textPersonName|textAutoComplete|textEmailAddress"
                 android:singleLine="true"
                 android:textSize="15dp" />
@@ -111,7 +110,8 @@
             android:layout_height="70dp"
             android:layout_marginLeft="220dp"
             android:layout_marginTop="250dp"
-            android:background="@drawable/btn_next"
+            android:background="@drawable/btn_next_gray"
+            android:clickable="false"
             android:elevation="10dp"
             android:onClick="btnNext_onClick"
             android:src="@drawable/arrow_forward" />
@@ -123,13 +123,14 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <Button
             android:id="@+id/btn_reg"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="66dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="btnReg_onClick"
             android:text="注册"
             android:textColor="#fff"
@@ -137,9 +138,9 @@
 
         <Button
             style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
-            android:layout_width="66dp"
-            android:layout_height="40dp"
             android:text="帮助"
             android:textColor="#fff"
             android:textSize="18sp" />
