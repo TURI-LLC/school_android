@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Schoolapp_android</string>
+    <string name="app_name">叮咚校园</string>
     <string name="welcome_text">欢迎</string>
     <string name="zen_text">为校园生活做减法。</string>
 </resources>

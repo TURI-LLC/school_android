@@ -8,25 +8,11 @@
     tools:context=".LoginActivity"
     android:background="@drawable/background">
 
-    <TextView
-        android:id="@+id/TitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginBottom="20dp"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:text="@string/welcome_text"
-        android:textColor="#FFF"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="注册" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="360dp"
-        android:layout_height="500dp"
+        android:layout_height="600dp"
         android:elevation="15dp"
         android:theme="@style/AppTheme"
         app:cardCornerRadius="10dp"
@@ -37,12 +23,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+      
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:tooltipText="下一步"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/btn_next_gray"
+            android:elevation="10dp"
+            android:clickable="false"
+            android:onClick="btnNext_onClick"
+            android:src="@drawable/arrow_forward" />
         <TextView
             android:id="@+id/lbl_zenText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请完善您的个人信息。"
+            android:text="注册"
+
             android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -59,8 +58,9 @@
                 android:id="@+id/txt_user"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="学号"
-                android:inputType="number"
+                android:hint="用户名"
+                android:inputType="textPersonName"
+
                 android:singleLine="true"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,15 +104,45 @@
                 android:inputType="textWebPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="210dp"
+            android:background="#fff"
+            app:startIconDrawable="@drawable/email">
+
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="电子邮件地址(可选)"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="275dp"
+            android:background="#fff"
+            app:startIconDrawable="@drawable/smartphone">
+
+            <EditText
+                android:id="@+id/txt_phone"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="电话号码(可选)"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="您可以随时修改这些信息."/>
     </androidx.cardview.widget.CardView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="#2196F3"
-        android:src="@drawable/arrow_forward"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
