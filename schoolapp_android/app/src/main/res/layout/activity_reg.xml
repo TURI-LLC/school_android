@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity"
+    tools:context=".RegActivity"
     android:background="@drawable/background">
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -25,8 +24,8 @@
         app:layout_constraintTop_toTopOf="parent">
       
         <ImageButton
-            android:id="@+id/btn_next"
-            android:tooltipText="下一步"
+            android:id="@+id/btn_Submit"
+            android:tooltipText="提交"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="220dp"
@@ -34,16 +33,16 @@
             android:background="@drawable/btn_next_gray"
             android:elevation="10dp"
             android:clickable="false"
-            android:onClick="btnNext_onClick"
-            android:src="@drawable/arrow_forward" />
+            android:onClick="btnSubmit_onClick"
+            android:src="@drawable/ic_check" />
         <TextView
             android:id="@+id/lbl_zenText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="注册"
+            android:text="注册为叮咚校园的一员"
 
             android:textColor="#000"
-            android:textSize="30sp"
+            android:textSize="26dp"
             android:textStyle="bold"
             android:typeface="sans" />
 
@@ -64,17 +63,6 @@
                 android:singleLine="true"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageButton
-            android:id="@+id/btn_clr1"
-            android:src="@drawable/clear_black"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="40dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="92dp"
-            android:visibility="invisible"
-            android:onClick="btnClr_onClick"
-            android:layout_height="40dp"/>
 
         <ProgressBar
             android:id="@+id/connection_prg"
@@ -142,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="您可以随时修改这些信息."/>
+            android:text="完成后,将为您自动登录."/>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

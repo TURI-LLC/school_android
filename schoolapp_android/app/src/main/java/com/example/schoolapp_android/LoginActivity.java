@@ -83,13 +83,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     public void btnNext_onClick(View view) {    //下一步按钮
-
-        con_prg.setVisibility(View.VISIBLE);
+        btn_next.setClickable(false); btn_next.setBackground(getDrawable(R.drawable.btn_next_gray));    //暂时禁用登录按钮
+        con_prg.setVisibility(View.VISIBLE);    //显示进度条,提示用户正在查找
         txt_usr.setText(txt_usr.getText().toString().trim());   //去除空格
         if(til_pwd.getVisibility()==View.GONE){ //如果密码框还未显示,则先查找用户
             txt_pwd.setText("");    //清空上一次输入的密码
             if(!txt_usr.getText().toString().isEmpty()){
-                //TODO:如果用户名输入框有内容,开始查找用户
+                //如果用户名输入框有内容,开始通讯
                 txt_usr.setEnabled(false);//通讯时禁用用户名输入框
                 btn_cls.setEnabled(false);//通讯时禁用清除按钮
                 if(true){  //TODO:查找数据库中用户名,手机号,邮箱字段
@@ -97,18 +97,22 @@ public class LoginActivity extends AppCompatActivity {
                 }else{
                     //TODO:提示未找到用户
                     txt_usr.setEnabled(true);   //开放用户名输入框
+                    //TODO:显示圆形注册按钮
                 }
             }
         }else{  //否则,验证密码
-            if(true){   //TODO:验证密码
+            if(true){   //TODO:查询密码是否与用户对应
                 //跳转到主界面
                 Intent go2main = new Intent(this,MainActivity.class);
-                go2main.putExtra("username",txt_usr.getText().toString());  //为主界面传送用户信息
+                go2main.putExtra("username",txt_usr.getText().toString());  //为主界面传送用户名
                 startActivity(go2main);
             }
         }
-        btn_cls.setEnabled(true); //通讯完成后启用清除按钮
-        con_prg.setVisibility(View.GONE);   //通讯完成后隐藏进度条
+        //通讯完成后重新开放控件
+        btn_cls.setEnabled(true);
+        con_prg.setVisibility(View.GONE);
+        btn_next.setClickable(true);
+        btn_next.setBackground(getDrawable(R.drawable.btn_next));
     }
     public void btnReg_onClick(View view){
         //跳转到注册页面
