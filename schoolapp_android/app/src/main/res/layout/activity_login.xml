@@ -14,11 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
         android:layout_marginBottom="20dp"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:text="@string/welcome_text"
+        android:text="@string/wecom"
         android:textColor="#FFF"
         android:textSize="36sp"
+        android:textStyle="bold"
+        android:typeface="sans"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/welcome_text" />
@@ -42,7 +42,7 @@
             android:id="@+id/lbl_zenText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="为大学生活做减法。"
+            android:text="@string/weidaxueshengzuojianfa"
             android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -62,7 +62,8 @@
                 android:hint="学号/手机号/邮箱"
                 android:inputType="textPersonName|textAutoComplete|textEmailAddress"
                 android:singleLine="true"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:autofillHints="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
@@ -101,8 +102,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="密码"
-                android:textSize="15dp"
-                android:inputType="textWebPassword" />
+                android:inputType="textWebPassword"
+                android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
