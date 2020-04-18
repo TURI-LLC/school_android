@@ -8,6 +8,7 @@
     tools:context=".LoginActivity"
     android:background="@drawable/background">
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="360dp"
@@ -22,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+      
         <ImageButton
             android:id="@+id/btn_next"
             android:tooltipText="下一步"
@@ -40,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="注册"
+
             android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -58,9 +60,32 @@
                 android:layout_height="wrap_content"
                 android:hint="用户名"
                 android:inputType="textPersonName"
+
                 android:singleLine="true"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/btn_clr1"
+            android:src="@drawable/clear_black"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="40dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="92dp"
+            android:visibility="invisible"
+            android:onClick="btnClr_onClick"
+            android:layout_height="40dp"/>
+
+        <ProgressBar
+            android:id="@+id/connection_prg"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="290dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="128dp"
+            android:indeterminate="true"
+            android:progressTint="@color/colorAccent"
+            android:visibility="gone" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_pwd"
