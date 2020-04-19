@@ -91,7 +91,7 @@ public class RegActivity extends AppCompatActivity {
         loading.show();
 
         //TODO:向服务器数据库用户表添加一条记录(要将邮件字符串toLowerCase();)
-        if(false){   //如果注册成功,跳转至主界面
+        if(true){   //如果注册成功,跳转至主界面
             Intent go2main = new Intent(this,MainActivity.class);
             go2main.putExtra("username",txt_name.getText().toString());  //为主界面传送用户信息
             startActivity(go2main);

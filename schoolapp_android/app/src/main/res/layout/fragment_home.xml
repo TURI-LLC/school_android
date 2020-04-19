@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment"
+    android:background="@drawable/main_0059_colour_1">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="63dp">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:background="@drawable/main_head_bg"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/main_left_head"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginBottom="15dp"/>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/main_head_txtbg">
+                <ImageView
+                    android:id="@+id/search_pic"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:src="@drawable/main_head_search"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_centerVertical="true"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_toRightOf="@+id/search_pic"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="20dp"
+                    android:minLines="1"
+                    android:padding="0dp"
+                    android:textColor="#333"
+                    style="?android:attr/textViewStyle"
+                    android:background="@null" />
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="19dp"
+                android:layout_height="15dp"
+                android:src="@drawable/main_news"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="15dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="test"
+                android:textColor="#000"
+                android:textSize="180dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="test"
+                android:textColor="#000"
+                android:textSize="180dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="test"
+                android:textColor="#000"
+                android:textSize="180dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="test"
+                android:textColor="#000"
+                android:textSize="180dp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

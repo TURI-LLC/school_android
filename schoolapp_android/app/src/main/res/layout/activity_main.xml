@@ -1,18 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_0059_colour_1"
     tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/demo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </androidx.viewpager.widget.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="home">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/sy"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:background="@drawable/main_0003_home" />
+                <TextView
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="22dp"
+                    android:layout_height="11dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/main_0007_home"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="course">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:background="@drawable/main_0000_course" />
+                <TextView
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="22dp"
+                    android:layout_height="11dp"
+                    android:textSize="13sp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/main_0006_curriculum"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="life">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:background="@drawable/main_0001_card" />
+                <TextView
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="22dp"
+                    android:layout_height="11dp"
+                    android:textSize="13sp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/main_0004_campus"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="mine">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:background="@drawable/main_0002_mine" />
+                <TextView
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="22dp"
+                    android:layout_height="11dp"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="-1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/main_0005_mine" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
