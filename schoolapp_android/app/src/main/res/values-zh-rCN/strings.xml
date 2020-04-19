@@ -3,8 +3,8 @@
     <string name="app_name">叮咚校园</string>
     <string name="welcome_text">欢迎</string>
     <string name="zen_text">为校园生活做减法。</string>
-    <string name="agree">好的,请继续.</string>
-    <string name="negative">请让我再改改!</string>
+    <string name="agree">好的,请为我注册.</string>
+    <string name="negative">让我再改改!</string>
     <string name="need_choose">这样可以吗?</string>
     <string name="request_confirm">请确认:</string>
 </resources>

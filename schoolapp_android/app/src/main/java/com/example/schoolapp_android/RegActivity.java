@@ -51,9 +51,12 @@ public class RegActivity extends AppCompatActivity {
     }
 
     public void btnSubmit_onClick(View view){
-        //TODO:检查表单内容格式,通过后显示确认对话框,不通过则告知用户重新输入.
-        if(true){go_dialog();}
-        else{}
+        if(true){
+            go_dialog();
+        } else{
+            String err_msg = "格式错误,请检查.";   //TODO:此处改为传值错误信息
+            snackBar_err(view,err_msg);
+        }
     }
     public void go_dialog(){
         //输出确认注册信息至对话框
@@ -82,18 +85,19 @@ public class RegActivity extends AppCompatActivity {
     private void start_reg(){   //注册
         ProgressDialog loading = new ProgressDialog(RegActivity.this);
         loading.setTitle("正在注册...");
-        loading.setMessage("请稍等,\n正在与服务器通讯.");
+        loading.setMessage("请稍等,\n我们正在与服务器通讯.");
         loading.setIndeterminate(true);
         loading.setCancelable(false);
         loading.show();
 
         //TODO:向服务器数据库用户表添加一条记录(要将邮件字符串toLowerCase();)
-        if(true){   //如果注册成功,跳转至主界面
+        if(false){   //如果注册成功,跳转至主界面
             Intent go2main = new Intent(this,MainActivity.class);
             go2main.putExtra("username",txt_name.getText().toString());  //为主界面传送用户信息
             startActivity(go2main);
         }else{
-            snackBar_err(findViewById(R.id.reg_view));  //向用户提供错误信息
+            String err_msg="发生错误,请稍后再试.";//TODO:此处改为传值注册失败消息
+            snackBar_err(findViewById(R.id.reg_view),err_msg);  //向用户提供错误信息
         }
 
         loading.dismiss();
@@ -116,8 +120,7 @@ public class RegActivity extends AppCompatActivity {
         });
         confirmDialog.show();
     }
-    private void snackBar_err(View view){   //错误消息栏
-        String err_msg = "发生错误,请稍后再试.";
+    private void snackBar_err(View view,String err_msg){   //错误消息栏
         Snackbar.make(view,err_msg,Snackbar.LENGTH_SHORT)
                 .setAction("重置",new View.OnClickListener(){
                     @Override

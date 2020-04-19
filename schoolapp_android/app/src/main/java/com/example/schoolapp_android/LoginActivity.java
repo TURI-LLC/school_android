@@ -94,10 +94,11 @@ public class LoginActivity extends AppCompatActivity {
                 //如果用户名输入框有内容,开始通讯
                 txt_usr.setEnabled(false);  //通讯时禁用用户名输入框
                 btn_cls.setEnabled(false);  //通讯时禁用清除按钮
-                if(false){  //TODO:查找数据库中用户名,手机号,邮箱字段
+                //TODO:将用户名和密码用于查询,使用.getText().toString()
+                if(false){  //TODO:if中传值查找数据库中用户名,手机号,邮箱字段是否成功的结果
                     til_pwd.setVisibility(View.VISIBLE);    //显示密码框
                 }else{
-                    Snackbar.make(view,"我们未能查找到这个用户,如果您是新用户,请单击\"注册\"按钮.",Snackbar.LENGTH_SHORT)
+                    Snackbar.make(view,"我们找不到这个用户的信息,请检查一下拼写.\n此外,如果您是新用户,请单击\"注册\"按钮.",Snackbar.LENGTH_LONG)
                             .setAction("注册",new View.OnClickListener(){
                                 @Override
                                 public void onClick(View v){
@@ -106,7 +107,6 @@ public class LoginActivity extends AppCompatActivity {
                             })
                             .show();
                     txt_usr.setEnabled(true);   //开放用户名输入框
-                    //TODO:显示圆形注册按钮
                 }
             }
         }else{  //否则,验证密码

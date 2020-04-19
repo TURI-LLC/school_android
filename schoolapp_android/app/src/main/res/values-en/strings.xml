@@ -4,7 +4,7 @@
     <string name="welcome_text">Welcome</string>
     <string name="zen_text">That\'s what ur school life looks like.</string>
     <string name="agree">Yes, Go ahead.</string>
-    <string name="negative">No,  Take me back.</string>
+    <string name="negative">Wait, Take me back!</string>
     <string name="need_choose">Is that okay?</string>
     <string name="request_confirm">Please confirm:</string>
 </resources>
