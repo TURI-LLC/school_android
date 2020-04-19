@@ -18,8 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class RegActivity extends AppCompatActivity {
     private EditText txt_name;
     private EditText txt_pwd;
-    private EditText txt_email;
-    private EditText txt_phone;
+    private EditText txt_school;
     private ImageButton btn_submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +26,9 @@ public class RegActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reg);
         txt_name = (EditText)findViewById(R.id.txt_user);   //用户名
         txt_pwd = (EditText)findViewById(R.id.txt_pwd); //密码
-        txt_email = (EditText)findViewById(R.id.txt_email); //电子邮件地址
-        txt_phone = (EditText)findViewById(R.id.txt_phone); //电话号码
+        txt_school = (EditText)findViewById(R.id.txt_school); //电子邮件地址
         btn_submit = (ImageButton)findViewById(R.id.btn_Submit);//提交按钮
-        //TODO:从登录界面获取用户名
+        //TODO:从登录界面接收传值,填充至用户名
         btn_submit.setClickable(false); //副视图的xml不知为何属性设置无效,故在此再次声明属性.
         txt_name.addTextChangedListener(new TextWatcher(){   //设置用户文本框监听器
             @Override
@@ -48,6 +46,16 @@ public class RegActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {}
         });
+        txt_school.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                textWatchR();
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     public void btnSubmit_onClick(View view){
@@ -60,20 +68,19 @@ public class RegActivity extends AppCompatActivity {
     }
     public void go_dialog(){
         //输出确认注册信息至对话框
-        boolean conditionA = txt_email.getText().toString().isEmpty(), conditionB=txt_phone.getText().toString().isEmpty();
-        String context = "您的用户名: " + txt_name.getText().toString().trim();
-        context+="\n您的密码: " + txt_name.getText().toString();
-        if(!conditionA){ context +="\n您的邮件地址: "+txt_email.getText().toString(); }
-        if(!conditionB){ context +="\n您的手机号码: "+txt_phone.getText().toString(); }
+        String context ="您的学校地址: "+txt_school.getText().toString();
+        context += "\n您的用户名: " + txt_name.getText().toString().trim();
+        context+="\n您的密码: " + txt_pwd.getText().toString();
         context+="\n________________________________________";
-        if(conditionA&&conditionB){ context+="\n\n* 请注意:您没有提供任何额外信息,这会降低找回账号的成功率."; }
+//      if(conditionA&&conditionB){ context+="\n\n* 请注意:您没有提供任何额外信息,这会降低找回账号的成功率."; } :(
         context +="\n\n"+getString(R.string.need_choose);
         //调用确认对话框
         confirmDialog(context);
     }
     public void textWatchR(){   //文本框监视,由文本框监听器进行外部调用.
-        if(txt_pwd.getText().toString().isEmpty()||txt_name.getText().toString().trim().isEmpty()){
-            //如果用户和密码输入任意其一没有内容,禁用提交按钮
+        boolean condition = txt_pwd.getText().toString().isEmpty()|txt_name.getText().toString().trim().isEmpty()||txt_school.getText().toString().isEmpty();
+        if(condition){
+            //如果学校,用户,密码输入框任意其一没有内容,禁用提交按钮
             btn_submit.setClickable(false);
             btn_submit.setBackground(getDrawable(R.drawable.btn_next_gray));
         } else {
@@ -99,9 +106,7 @@ public class RegActivity extends AppCompatActivity {
             String err_msg="发生错误,请稍后再试.";//TODO:此处改为传值注册失败消息
             snackBar_err(findViewById(R.id.reg_view),err_msg);  //向用户提供错误信息
         }
-
         loading.dismiss();
-
     }
     private void confirmDialog(String context){     //确认对话框
         final AlertDialog.Builder confirmDialog = new AlertDialog.Builder(RegActivity.this);

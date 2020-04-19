@@ -17,10 +17,9 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
-
+import htmlservice.*;
 public class LoginActivity extends AppCompatActivity {
     private EditText txt_usr;
     private TextInputLayout til_usr;
@@ -64,7 +63,11 @@ public class LoginActivity extends AppCompatActivity {
         txt_usr.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                btnNext_onClick(findViewById(R.id.login_view));  //当按下软键盘的完成按钮时,调用下一步按钮单击事件
+                try {
+                    btnNext_onClick(findViewById(R.id.login_view));  //当按下软键盘的完成按钮时,调用下一步按钮单击事件
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 return true;
             }
         });
@@ -84,9 +87,9 @@ public class LoginActivity extends AppCompatActivity {
         txt_usr.setEnabled(true);
 
     }
-    public void btnNext_onClick(View view) {    //下一步按钮单击事件
-        btn_next.setClickable(false); btn_next.setBackground(getDrawable(R.drawable.btn_next_gray));    //暂时禁用登录按钮
+    public void btnNext_onClick(View view) throws InterruptedException {    //下一步按钮单击事件
         con_prg.setVisibility(View.VISIBLE);    //显示进度条,提示用户正在查找
+        btn_next.setClickable(false); btn_next.setBackground(getDrawable(R.drawable.btn_next_gray));    //暂时禁用登录按钮
         txt_usr.setText(txt_usr.getText().toString().trim());   //去除空格
         if(til_pwd.getVisibility()==View.GONE){ //如果密码框还未显示,则先查找用户
             txt_pwd.setText("");    //清空上一次输入的密码
@@ -94,8 +97,10 @@ public class LoginActivity extends AppCompatActivity {
                 //如果用户名输入框有内容,开始通讯
                 txt_usr.setEnabled(false);  //通讯时禁用用户名输入框
                 btn_cls.setEnabled(false);  //通讯时禁用清除按钮
-                //TODO:将用户名和密码用于查询,使用.getText().toString()
-                if(false){  //TODO:if中传值查找数据库中用户名,手机号,邮箱字段是否成功的结果
+                //将用户名用于查询
+                String user=txt_usr.getText().toString();
+                check_user check_user = new check_user();
+                if(check_user.checkuser(user)){
                     til_pwd.setVisibility(View.VISIBLE);    //显示密码框
                 }else{
                     Snackbar.make(view,"我们找不到这个用户的信息,请检查一下拼写.\n此外,如果您是新用户,请单击\"注册\"按钮.",Snackbar.LENGTH_LONG)
@@ -110,7 +115,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         }else{  //否则,验证密码
-            if(true){   //TODO:查询密码是否与用户对应
+            login_class login=new login_class();
+            String user=txt_usr.getText().toString();
+            String pwd =txt_pwd.getText().toString();
+            if(login.loginjosn(user,pwd)){   //查询密码是否与用户对应
                 //跳转到主界面
                 Intent go2main = new Intent(this,MainActivity.class);
                 go2main.putExtra("username",txt_usr.getText().toString());  //为主界面传送用户名

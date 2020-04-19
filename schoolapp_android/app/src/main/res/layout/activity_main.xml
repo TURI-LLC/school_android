@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/main_0059_colour_1"
+    android:background="#FFF"
     tools:context=".MainActivity">
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/demo"
