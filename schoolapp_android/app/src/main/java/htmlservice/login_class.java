@@ -7,6 +7,9 @@ import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 import javabean.JavaBean;
 import okhttp3.Call;
@@ -18,21 +21,23 @@ import okhttp3.ResponseBody;
 
 public class login_class  {
     private ArrayList<JavaBean> beans = new ArrayList<>();
-    private String user, pwd;
-    private String addrss = "http://123.56.48.182:5000/api/check?id=123&&name=123";
 
 
-    public boolean loginjosn(String user,String pwd) throws InterruptedException {
+
+
+    public boolean loginjosn(String user,String pwd)  {
+        String addrss = "http://123.56.48.182:5000/api/check?id="+user+"&&"+"password="+pwd;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(addrss)
                 .get()
                 .build();
         Call call = client.newCall(request);
+        final CountDownLatch latch=new CountDownLatch(1);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                latch.countDown();
             }
 
             @Override
@@ -51,13 +56,18 @@ public class login_class  {
 
 
                 }
+                latch.countDown();
 
 
 
             }
 
         });
-        Thread.sleep(1000);
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if (user.equals(beans.get(0).U_id)&&pwd.equals(beans.get(0).U_name)){
             return true;
         }

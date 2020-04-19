@@ -1,24 +1,24 @@
 package com.example.schoolapp_android;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+
 import htmlservice.*;
 public class LoginActivity extends AppCompatActivity {
     private EditText txt_usr;
@@ -28,7 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar con_prg;
     private ImageButton btn_cls;
     private ImageButton btn_next;
-
+    private View view;
+    private Context ct;
+    String user,pwd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                     btn_cls.setVisibility(View.INVISIBLE);
                     btn_next.setClickable(false);
                     btn_next.setBackground(getDrawable(R.drawable.btn_next_gray));
+                    til_pwd.setVisibility(View.GONE);
                 } else {    //如果有内容,显示清除按钮,启用下一步按钮
                     btn_cls.setVisibility((View.VISIBLE));
                     btn_next.setClickable(true);
@@ -83,51 +86,39 @@ public class LoginActivity extends AppCompatActivity {
 
     public void btnClr_onClick(View view){  //清除按钮单击事件
         txt_usr.setText("");
-        til_pwd.setVisibility(View.GONE);
         txt_usr.setEnabled(true);
+        txt_pwd.setEnabled(true);
 
     }
     public void btnNext_onClick(View view) throws InterruptedException {    //下一步按钮单击事件
-        con_prg.setVisibility(View.VISIBLE);    //显示进度条,提示用户正在查找
+        long startTime=System.currentTimeMillis();  //用于测算通讯时间
         btn_next.setClickable(false); btn_next.setBackground(getDrawable(R.drawable.btn_next_gray));    //暂时禁用登录按钮
         txt_usr.setText(txt_usr.getText().toString().trim());   //去除空格
+        user = txt_usr.getText().toString();
+        con_prg.setVisibility(View.VISIBLE);
+        this.view=view;//传入view
+        ct = LoginActivity.this;//传入本体
         if(til_pwd.getVisibility()==View.GONE){ //如果密码框还未显示,则先查找用户
             txt_pwd.setText("");    //清空上一次输入的密码
-            if(!txt_usr.getText().toString().isEmpty()){
+
+            if(!txt_usr.getText().toString().isEmpty()) {
                 //如果用户名输入框有内容,开始通讯
                 txt_usr.setEnabled(false);  //通讯时禁用用户名输入框
-                btn_cls.setEnabled(false);  //通讯时禁用清除按钮
-                //将用户名用于查询
-                String user=txt_usr.getText().toString();
-                check_user check_user = new check_user();
-                if(check_user.checkuser(user)){
-                    til_pwd.setVisibility(View.VISIBLE);    //显示密码框
-                }else{
-                    Snackbar.make(view,"我们找不到这个用户的信息,请检查一下拼写.\n此外,如果您是新用户,请单击\"注册\"按钮.",Snackbar.LENGTH_LONG)
-                            .setAction("注册",new View.OnClickListener(){
-                                @Override
-                                public void onClick(View v){
-                                    btnReg_onClick(v);
-                                }
-                            })
-                            .show();
-                    txt_usr.setEnabled(true);   //开放用户名输入框
-                }
+                btn_cls.setEnabled(true);  //通讯时禁用清除按钮
+
+                //调用子线程查询用户,避免UI线程等待
+                thread_valiUser x =new thread_valiUser();
+                x.execute();
             }
         }else{  //否则,验证密码
-            login_class login=new login_class();
-            String user=txt_usr.getText().toString();
-            String pwd =txt_pwd.getText().toString();
-            if(login.loginjosn(user,pwd)){   //查询密码是否与用户对应
-                //跳转到主界面
-                Intent go2main = new Intent(this,MainActivity.class);
-                go2main.putExtra("username",txt_usr.getText().toString());  //为主界面传送用户名
-                startActivity(go2main);
-            }
+            txt_pwd.setEnabled(false);
+            pwd = txt_pwd.getText().toString();
+            //调用子线程验证密码
+            new thread_valiPwd().execute();
         }
         //通讯完成后重新开放控件
+        long endTime=System.currentTimeMillis(); System.out.println(endTime-startTime);  //测算通讯耗时
         btn_cls.setEnabled(true);
-        con_prg.setVisibility(View.GONE);
         btn_next.setClickable(true);
         btn_next.setBackground(getDrawable(R.drawable.btn_next));
     }
@@ -137,4 +128,70 @@ public class LoginActivity extends AppCompatActivity {
         go2reg.putExtra("username",txt_usr.getText().toString());   //自动为用户填充注册UI的用户名(从登录UI
         startActivity(go2reg);
     }
+
+    private class thread_valiUser extends AsyncTask<Void,String,Boolean>{
+        @Override
+        protected Boolean doInBackground(Void... params) {
+//            try{ Thread.sleep(2000); }catch (Exception e){e.printStackTrace();}   //测试进度条动画显示情况
+            check_user check_user = new check_user();
+                if (check_user.checkuser(user)) {  //查找数据库中用户名,手机号,邮箱字段是否成功的结果
+                    return true;
+                }else{
+                    return false;   //非ui线程
+                }
+        }
+
+        protected void onPostExecute(Boolean b){
+            //任务完成
+            if(b){
+                    til_pwd.setVisibility(View.VISIBLE);
+            }else{
+                    Snackbar.make(view,"我们找不到这个用户的信息,请检查一下拼写.\n此外,如果您是新用户,请单击\"注册\"按钮.",Snackbar.LENGTH_LONG)
+                            .setAction("注册",new View.OnClickListener(){
+                                @Override
+                                public void onClick(View v){
+                                    btnReg_onClick(v);
+                                }
+                            })
+                            .show();
+                txt_usr.setEnabled(true);   //开放用户名输入框
+            }
+            con_prg.setVisibility(View.GONE);
+        }
+    }
+
+    private class thread_valiPwd extends AsyncTask<Void,String,Boolean>{
+//        @Override
+//        protected void onPreExecute(){
+//            //任务之前
+//            con_prg.setVisibility(View.VISIBLE);
+//        }
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            //异步耗时任务
+            login_class login=new login_class();
+
+                if (login.loginjosn(user,pwd)) {  //判断帐号密码
+                    return true;
+                }else{
+                    return false;   //非ui线程
+                }
+        }
+
+        protected void onPostExecute(Boolean b){
+            //任务完成
+            if(b){
+                Intent go2main = new Intent(ct,MainActivity.class);
+                go2main.putExtra("username",txt_usr.getText().toString());  //为主界面传送用户名
+                startActivity(go2main);
+            }else{
+                Snackbar.make(view,"帐号或者密码错误.",Snackbar.LENGTH_LONG).show();
+                txt_usr.setEnabled(true);   //开放用户名输入框
+                txt_pwd.setEnabled(true);
+            }
+            con_prg.setVisibility(View.GONE);
+        }
+    }
 }
+
+

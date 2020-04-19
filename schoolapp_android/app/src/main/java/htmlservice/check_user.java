@@ -1,5 +1,7 @@
 package htmlservice;
 
+import android.os.Handler;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -7,6 +9,8 @@ import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.logging.LogRecord;
 
 import javabean.JavaBean;
 import okhttp3.Call;
@@ -18,12 +22,12 @@ import okhttp3.ResponseBody;
 
 public class check_user {
 
-    private ArrayList<JavaBean> beans = new ArrayList<>();
+
     private String user, pwd;
     private String addrss = "http://123.56.48.182:5000/api/check_user?id=";
 
 
-    public boolean checkuser(String user) throws InterruptedException {
+    public boolean checkuser(String user)  {
         addrss+=user;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -31,14 +35,18 @@ public class check_user {
                 .get()
                 .build();
         Call call = client.newCall(request);
+        final CountDownLatch latch=new CountDownLatch(1);
+        final String user2=user;
+         final ArrayList<JavaBean> beans = new ArrayList<>();
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                latch.countDown();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+
                 ResponseBody resbody = response.body();
                 final String json = resbody.string();
 
@@ -53,20 +61,26 @@ public class check_user {
 
 
                 }
+                latch.countDown();
 
 
 
             }
 
         });
-        Thread.sleep(1000);
-        if (user.equals(beans.get(0).U_id)){
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (user2.equals(beans.get(0).U_id)){
             return true;
         }
         else {
             return false;
         }
     }
+
 
 
 }
