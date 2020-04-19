@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -54,11 +55,12 @@
             android:background="#fff"
             app:startIconDrawable="@drawable/account_circle">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_user"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="用户名/手机号/邮箱"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName|textAutoComplete|textEmailAddress"
                 android:singleLine="true"
                 android:textSize="15dp"
@@ -96,7 +98,7 @@
             app:passwordToggleEnabled="true"
             app:startIconDrawable="@drawable/lock_black">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_pwd"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
