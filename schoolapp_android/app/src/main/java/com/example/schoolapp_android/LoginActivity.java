@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -107,8 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                 btn_cls.setEnabled(true);  //通讯时禁用清除按钮
 
                 //调用子线程查询用户,避免UI线程等待
-                thread_valiUser x =new thread_valiUser();
-                x.execute();
+                new thread_valiUser().execute();
             }
         }else{  //否则,验证密码
             txt_pwd.setEnabled(false);
@@ -161,11 +161,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private class thread_valiPwd extends AsyncTask<Void,String,Boolean>{
-//        @Override
-//        protected void onPreExecute(){
-//            //任务之前
-//            con_prg.setVisibility(View.VISIBLE);
-//        }
         @Override
         protected Boolean doInBackground(Void... params) {
             //异步耗时任务
@@ -193,5 +188,3 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
-
-

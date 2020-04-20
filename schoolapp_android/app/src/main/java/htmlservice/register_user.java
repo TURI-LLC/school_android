@@ -17,31 +17,20 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class login_class  {
-    private ArrayList<JavaBean> beans = new ArrayList<>();
+public class register_user {
 
 
 
+    private String addrss = "http://123.56.48.182:5000/api/user_register?";
 
-    public boolean loginjosn(String user,String pwd)  {
-        String regex1 = "^[a-zA-Z][a-zA-Z0-9_]{6,15}$"; //验证用户名是否为id
-        String regex2 ="^[0-9]{11,11}$"; //验证用户名是否为手机号
-        String regex3 ="\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";//验证邮箱
-        String ziduan ="";
 
-        if(user.matches(regex1)){
-            ziduan="id="+user;
+    public boolean register(String user,String pwd,String sch)  {
 
-        }else if(user.matches(regex2)){
-            ziduan="phone="+user;
+        String id="id="+user;
+        String password="&&password="+pwd;
+        String school="&&school="+sch;
 
-        }else if(user.matches(regex3)){
-            ziduan="mail="+user;
-
-        }else{
-            return false;
-        }
-        String addrss = "http://123.56.48.182:5000/api/check?"+ziduan+"&&"+"password="+pwd;
+        addrss+=id+password+school;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(addrss)
@@ -49,6 +38,8 @@ public class login_class  {
                 .build();
         Call call = client.newCall(request);
         final CountDownLatch latch=new CountDownLatch(1);
+
+        final ArrayList<JavaBean> beans = new ArrayList<>();
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -57,6 +48,7 @@ public class login_class  {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+
                 ResponseBody resbody = response.body();
                 final String json = resbody.string();
 
@@ -83,7 +75,7 @@ public class login_class  {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (pwd.equals(beans.get(0).U_password)){
+        if ("ok".equals(beans.get(0).id)){
             return true;
         }
         else {

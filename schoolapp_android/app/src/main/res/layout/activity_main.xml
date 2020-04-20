@@ -84,40 +84,44 @@
                 android:layout_weight="1">
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="life">
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
+                android:layout_weight="1"></LinearLayout>
+
             <LinearLayout
                 android:layout_width="21dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_marginTop="10dp"
                     android:layout_width="21dp"
                     android:layout_height="21dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/main_0001_card" />
+
                 <TextView
-                    android:layout_marginBottom="5dp"
                     android:layout_width="22dp"
                     android:layout_height="11dp"
-                    android:textSize="13sp"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/main_0004_campus"/>
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/main_0004_campus"
+                    android:textSize="13sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
+                android:layout_weight="1"></LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"

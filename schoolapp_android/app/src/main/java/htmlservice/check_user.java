@@ -1,7 +1,5 @@
 package htmlservice;
 
-import android.os.Handler;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -10,7 +8,6 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
-import java.util.logging.LogRecord;
 
 import javabean.JavaBean;
 import okhttp3.Call;
@@ -23,12 +20,29 @@ import okhttp3.ResponseBody;
 public class check_user {
 
 
-    private String user, pwd;
-    private String addrss = "http://123.56.48.182:5000/api/check_user?id=";
+private String addrss = "http://123.56.48.182:5000/api/check_user?";
 
 
     public boolean checkuser(String user)  {
-        addrss+=user;
+        String regex1 = "^[a-zA-Z][a-zA-Z0-9_]{6,15}$"; //验证用户名是否为id
+        String regex2 ="^[0-9]{11,11}$"; //验证用户名是否为手机号
+        String regex3 ="\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";//验证邮箱
+        String ziduan ="";
+
+        if(user.matches(regex1)){
+            ziduan="id="+user;
+
+        }else if(user.matches(regex2)){
+            ziduan="phone="+user;
+
+        }else if(user.matches(regex3)){
+            ziduan="mail="+user;
+
+        }else{
+            return false;
+        }
+
+        addrss+=ziduan;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(addrss)
@@ -73,7 +87,8 @@ public class check_user {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (user2.equals(beans.get(0).U_id)){
+
+        if (beans.size()>0){
             return true;
         }
         else {
