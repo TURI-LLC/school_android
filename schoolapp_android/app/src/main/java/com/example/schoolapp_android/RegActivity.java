@@ -82,11 +82,23 @@ public class RegActivity extends AppCompatActivity {
         a.execute();
     }
     public void btnSubmit_onClick(View view){
-        if(new field_check().field_check(list,txt_school.getText().toString(),txt_name.getText().toString(),txt_pwd.getText().toString())){
-            go_dialog();
-        } else{
-            String err_msg = "格式错误,请检查.";   //TODO:此处改为传值错误信息(√)
-            snackBar_err(view,err_msg);
+        String err_msg;
+        switch (new field_check().field_check(list,txt_school.getText().toString(),txt_name.getText().toString(),txt_pwd.getText().toString())){
+            case 0:
+                go_dialog();
+                break;
+            case 1:
+                err_msg = "学校不存在或不支持,请检查.";
+                snackBar_err(view,err_msg);
+                break;
+            case 2:
+                err_msg = "密码至少需要6个字符,请再复杂一点^_^";
+                snackBar_err(view,err_msg);
+                break;
+            case 3:
+                err_msg = "用户名不符合规范,请满足以字母开头,至少6位且不含除下划线以外的字符的要求.";
+                snackBar_err(view,err_msg);
+                break;
         }
     }
     private void go_dialog(){
