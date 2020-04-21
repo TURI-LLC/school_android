@@ -81,7 +81,7 @@ public class RegActivity extends AppCompatActivity {
         Setspinner a=new Setspinner();
         a.execute();
     }
-    public void btnSubmit_onClick(View view){
+    private void btnSubmit_onClick(View view){
 
 
         if(new field_check().field_check(list,txt_school.getText().toString(),txt_name.getText().toString(),txt_pwd.getText().toString())){
@@ -91,7 +91,7 @@ public class RegActivity extends AppCompatActivity {
             snackBar_err(view,err_msg);
         }
     }
-    public void go_dialog(){
+    private void go_dialog(){
         //输出确认注册信息至对话框
         String context ="您的学校地址: "+txt_school.getText().toString();
         context += "\n您的用户名: " + txt_name.getText().toString().trim();
@@ -102,7 +102,7 @@ public class RegActivity extends AppCompatActivity {
         //调用确认对话框
         confirmDialog(context);
     }
-    public void textWatchR(){   //文本框监视,由文本框监听器进行外部调用.
+    private void textWatchR(){   //文本框监视,由文本框监听器进行外部调用.
         boolean condition = txt_pwd.getText().toString().isEmpty()|txt_name.getText().toString().trim().isEmpty()||txt_school.getText().toString().isEmpty();
         if(condition){
             //如果学校,用户,密码输入框任意其一没有内容,禁用提交按钮
@@ -205,7 +205,6 @@ public class RegActivity extends AppCompatActivity {
 //            loading.setIndeterminate(true);
 //            loading.setCancelable(false);
 //            loading.show();
-
         }
         @Override
         protected Boolean doInBackground(Void... params) {
@@ -220,10 +219,7 @@ public class RegActivity extends AppCompatActivity {
             }else{
                 return false;
             }
-
-
         }
-
         protected void onPostExecute(Boolean b){
 
             //任务完成

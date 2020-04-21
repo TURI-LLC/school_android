@@ -8,153 +8,50 @@
     android:background="#FFF"
     tools:context=".MainActivity">
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/demo"
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
     </androidx.viewpager.widget.ViewPager>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="home">
-            <LinearLayout
-                android:layout_width="0dp"
+            <ImageButton
+                android:id="@+id/bot_home"
+                android:scaleType="fitCenter"
+                android:src="@drawable/main"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="21dp"
+                android:layout_width="wrap_content"
+                android:onClick="onClick"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/bot_course"
+                android:scaleType="fitCenter"
+                android:src="@drawable/course_grey"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_height="wrap_content"
-
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/sy"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:background="@drawable/main_0003_home" />
-                <TextView
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="22dp"
-                    android:layout_height="11dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/main_0007_home"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
+                android:onClick="onClick"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/bot_life"
+                android:scaleType="fitCenter"
+                android:src="@drawable/life_grey"
+                android:onClick="onClick"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="course">
-            <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/bot_me"
+                android:src="@drawable/me_grey"
+                android:scaleType="fitCenter"
+                android:onClick="onClick"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="21dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:background="@drawable/main_0000_course" />
-                <TextView
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="22dp"
-                    android:layout_height="11dp"
-                    android:textSize="13sp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/main_0006_curriculum"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="life">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"></LinearLayout>
-
-            <LinearLayout
-                android:layout_width="21dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/main_0001_card" />
-
-                <TextView
-                    android:layout_width="22dp"
-                    android:layout_height="11dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/main_0004_campus"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"></LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="mine">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="21dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:background="@drawable/main_0002_mine" />
-                <TextView
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="22dp"
-                    android:layout_height="11dp"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="-1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/main_0005_mine" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
-        </LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>

@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void btnClr_onClick(View view){  //清除按钮单击事件
+    private void btnClr_onClick(View view){  //清除按钮单击事件
         txt_usr.setText("");
         txt_usr.setEnabled(true);
         txt_pwd.setEnabled(true);
@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_next.setClickable(true);
         btn_next.setBackground(getDrawable(R.drawable.btn_next));
     }
-    public void btnReg_onClick(View view){  //注册按钮单击事件
+    private void btnReg_onClick(View view){  //注册按钮单击事件
         //跳转到注册页面
         Intent go2reg = new Intent(this,RegActivity.class);
         go2reg.putExtra("username",txt_usr.getText().toString());   //自动为用户填充注册UI的用户名(从登录UI
