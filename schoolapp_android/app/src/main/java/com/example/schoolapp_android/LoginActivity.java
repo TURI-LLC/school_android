@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -124,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_next.setClickable(true);
         btn_next.setBackground(getDrawable(R.drawable.btn_next));
     }
-    private void btnReg_onClick(View view){  //注册按钮单击事件
+    public void btnReg_onClick(View view){  //注册按钮单击事件
         //跳转到注册页面
         Intent go2reg = new Intent(this,RegActivity.class);
         go2reg.putExtra("username",txt_usr.getText().toString());   //自动为用户填充注册UI的用户名(从登录UI
@@ -178,7 +179,12 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean b){
             //任务完成
             if(b){
+                SharedPreferences sharedPreferences = getSharedPreferences("settings",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 Intent go2main = new Intent(ct,MainActivity.class);
+                editor.putBoolean("isLogin",true);
+                editor.putString("username",user);
+                editor.commit();
                 startActivity(go2main);
                 finish();
             }else{

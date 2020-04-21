@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -45,7 +46,6 @@ public class RegActivity extends AppCompatActivity {
         txt_pwd = (EditText)findViewById(R.id.txt_pwd); //密码
         txt_school = (EditText)findViewById(R.id.txt_school); //电子邮件地址
         btn_submit = (ImageButton)findViewById(R.id.btn_Submit);//提交按钮
-        //TODO:从登录界面接收传值,填充至用户名(避免是邮箱与手机，其功能删除)
         context = this;
         btn_submit.setClickable(false); //副视图的xml不知为何属性设置无效,故在此再次声明属性.
         txt_name.addTextChangedListener(new TextWatcher(){   //设置用户文本框监听器
@@ -81,9 +81,7 @@ public class RegActivity extends AppCompatActivity {
         Setspinner a=new Setspinner();
         a.execute();
     }
-    private void btnSubmit_onClick(View view){
-
-
+    public void btnSubmit_onClick(View view){
         if(new field_check().field_check(list,txt_school.getText().toString(),txt_name.getText().toString(),txt_pwd.getText().toString())){
             go_dialog();
         } else{
@@ -226,7 +224,11 @@ public class RegActivity extends AppCompatActivity {
 //            loading.dismiss();
             if(b){
                 Intent go2main = new Intent(context,MainActivity.class);
-                go2main.putExtra("username",txt_name.getText().toString());  //为主界面传送用户信息
+                SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isLogin",true);
+                editor.putString("username",txt_name.getText().toString());
+                editor.commit();
                 startActivity(go2main);
             }else{
                 String err_msg="发生错误,请稍后再试.";//TODO:此处改为传值注册失败消息

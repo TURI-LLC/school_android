@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,12 +18,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
-    String username;    //TODO:接入用户名
     private ImageButton btn_home,btn_course,btn_life,btn_me;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        String username=sharedPreferences.getString("username","未知");    //TODO:接入用户名
         Toast.makeText(getApplicationContext(),"欢迎回来,"+username,Toast.LENGTH_SHORT).show();    //每次进入主界面时显示(不要在子页面返回时显示)
         viewPager=findViewById(R.id.pager);
         final List<Fragment> fragments=new ArrayList<>();
