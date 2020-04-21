@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+
+    >
+    <RelativeLayout
+        android:id="@+id/xytt_item1_Content2"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginLeft="11dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f6f6f6"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true">
+            <RelativeLayout
+                android:id="@+id/xytt_item1_Content2_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:id="@+id/xytt_item1_Content2_title"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:text="科学家首次发现中子星"
+                    android:textColor="#333"
+                    android:textSize="15dp"
+                    android:lineHeight="22dp"/>
+                <TextView
+                    android:id="@+id/xytt_item1_Content2_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2020-4-19"
+                    android:textColor="#a1a3a8"
+
+                    android:layout_alignParentBottom="true"
+                    android:textSize="12dp"/>
+                <TextView
+                    android:id="@+id/xytt_item1_Content2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="松花网"
+                    android:textColor="#a1a3a8"
+                    android:layout_toRightOf="@+id/xytt_item1_Content2_date"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="12dp"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/xytt_item1_Content2_img"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

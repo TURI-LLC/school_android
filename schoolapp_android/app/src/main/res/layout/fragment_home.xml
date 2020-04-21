@@ -11,7 +11,7 @@
         android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="63dp">
-<!--        页头-->
+        <!--        页头-->
         <LinearLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginBottom="15dp"/>
         </LinearLayout>
-<!--        轮播图-->
+        <!--        轮播图-->
         <RelativeLayout
             android:id="@+id/banner"
             android:layout_marginTop="14dp"
@@ -70,7 +70,7 @@
             android:layout_height="180dp"
             android:orientation="vertical">
         </RelativeLayout >
-<!--        主要功能-->
+        <!--        主要功能-->
         <LinearLayout
             android:id="@+id/main_function"
             android:layout_width="match_parent"
@@ -90,20 +90,20 @@
                 android:orientation="horizontal" >
 
                 <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/card"
-                android:orientation="vertical"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:gravity="center">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/card"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:gravity="center">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/main_secondclassroom"
-                    />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/main_secondclassroom"
+                        />
 
                     <ImageView
                         android:layout_width="48dp"
@@ -269,7 +269,7 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-<!--        校园头条-->
+        <!--        校园头条-->
         <LinearLayout
             android:id="@+id/campus_headlines"
             android:layout_below="@+id/main_function"
@@ -279,7 +279,7 @@
             android:background="#fff"
             android:layout_centerHorizontal="true"
             android:orientation="vertical">
-<!--            校园头条标题-->
+            <!--            校园头条标题-->
             <RelativeLayout
                 android:id="@+id/campus_headlines_title"
                 android:layout_width="match_parent"
@@ -317,334 +317,61 @@
                     android:layout_centerVertical="true"
                     />
             </RelativeLayout>
-<!--            校园头条内容-->
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content1"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingTop="12dp"
-                android:paddingBottom="8dp">
-                <RelativeLayout
-                    android:id="@+id/campus_headlines1_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines1_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/Content1_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines1_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content2"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingBottom="8dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f6f6f6"/>
-                <RelativeLayout
-                    android:id="@+id/campus_headlines2_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines2_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/campus_headlines2_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines2_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content3"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingBottom="8dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f6f6f6"/>
-                <RelativeLayout
-                    android:id="@+id/campus_headlines3_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines3_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/campus_headlines3_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines3_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content4"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingBottom="8dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f6f6f6"/>
-                <RelativeLayout
-                    android:id="@+id/campus_headlines4_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines4_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/campus_headlines4_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines4_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content5"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingBottom="8dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f6f6f6"/>
-                <RelativeLayout
-                    android:id="@+id/campus_headlines5_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines5_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/campus_headlines5_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines5_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content6"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingBottom="8dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f6f6f6"/>
-                <RelativeLayout
-                    android:id="@+id/campus_headlines6_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines6_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/campus_headlines6_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines6_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content7"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingBottom="8dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f6f6f6"/>
-                <RelativeLayout
-                    android:id="@+id/campus_headlines7_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines7_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/campus_headlines7_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines7_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/campus_headlines_Content8"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginRight="11dp"
-                android:layout_marginLeft="11dp"
-                android:paddingBottom="8dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f6f6f6"/>
-                <RelativeLayout
-                    android:id="@+id/campus_headlines8_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/campus_headlines8_title"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"
-                        android:textColor="#333"
-                        android:textSize="15dp"
-                        android:lineHeight="22dp"/>
-                    <TextView
-                        android:id="@+id/campus_headlines8_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2020-4-19"
-                        android:textColor="#a1a3a8"
-                        android:layout_below="@+id/campus_headlines8_title"
-                        android:layout_marginTop="7dp"
-                        android:textSize="12dp"/>
-                </RelativeLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="#008c8c"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
+            <!--            校园头条内容-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/campus_headlines_Content1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="90dp"-->
+<!--                android:layout_marginRight="11dp"-->
+<!--                android:layout_marginLeft="11dp"-->
+<!--                android:paddingTop="12dp"-->
+<!--                android:paddingBottom="8dp">-->
+<!--                <RelativeLayout-->
+<!--                    android:id="@+id/campus_headlines1_left"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true">-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/campus_headlines1_title"-->
+<!--                        android:layout_width="240dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"-->
+<!--                        android:textColor="#333"-->
+<!--                        android:textSize="15dp"-->
+<!--                        android:lineHeight="22dp"/>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/Content1_date"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="2020-4-19"-->
+<!--                        android:textColor="#a1a3a8"-->
+<!--                        android:layout_below="@+id/campus_headlines1_title"-->
+<!--                        android:layout_marginTop="7dp"-->
+<!--                        android:textSize="12dp"/>-->
+<!--                </RelativeLayout>-->
+<!--                <ImageView-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:background="#008c8c"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentRight="true"/>-->
+<!--            </RelativeLayout>-->
+
+
+
+
+
+
+
         </LinearLayout>
-<!--        页脚-->
+        <!--        页脚-->
         <LinearLayout
             android:id="@+id/footer"
             android:layout_below="@+id/campus_headlines"
