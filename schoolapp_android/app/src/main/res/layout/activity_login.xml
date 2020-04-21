@@ -58,7 +58,6 @@
                 android:id="@+id/txt_user"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:autofillHints=""
                 android:hint="用户名/手机号/邮箱"
                 android:imeOptions="actionDone"
                 android:inputType="textPersonName|textAutoComplete|textEmailAddress"
@@ -105,6 +104,17 @@
                 android:inputType="textWebPassword"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/connection_prg2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="290dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="193dp"
+            android:indeterminate="true"
+            android:progressTint="@color/colorAccent"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/btn_next"

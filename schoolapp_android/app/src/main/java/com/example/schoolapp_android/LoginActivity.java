@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout til_usr;
     private TextInputLayout til_pwd;
     private EditText txt_pwd;
-    private ProgressBar con_prg;
+    private ProgressBar con_prg,con_prg2;
     private ImageButton btn_cls;
     private ImageButton btn_next;
     private View view;
@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_next = (ImageButton)findViewById(R.id.btn_next);    //下一步按钮
         btn_next.setClickable(false); //副视图的xml不知为何属性设置无效,故在此再次声明属性.
         con_prg = (ProgressBar)findViewById(R.id.connection_prg);   //进度条动画
+        con_prg2 = (ProgressBar)findViewById(R.id.connection_prg2);
         txt_pwd = (EditText)findViewById(R.id.txt_pwd); //密码输入框
         til_usr = (TextInputLayout)findViewById(R.id.til_pwd);  //用户名输入框架
         til_pwd = (TextInputLayout)findViewById(R.id.til_pwd);  //密码输入框架
@@ -85,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void btnClr_onClick(View view){  //清除按钮单击事件
+    public void btnClr_onClick(View view){  //清除按钮单击事件
         txt_usr.setText("");
         txt_usr.setEnabled(true);
         txt_pwd.setEnabled(true);
@@ -112,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }else{  //否则,验证密码
             txt_pwd.setEnabled(false);
+            con_prg2.setVisibility(View.VISIBLE);
             pwd = txt_pwd.getText().toString();
             //调用子线程验证密码
             new thread_valiPwd().execute();
@@ -177,14 +179,15 @@ public class LoginActivity extends AppCompatActivity {
             //任务完成
             if(b){
                 Intent go2main = new Intent(ct,MainActivity.class);
-                go2main.putExtra("username",txt_usr.getText().toString());  //为主界面传送用户名
                 startActivity(go2main);
+                finish();
             }else{
                 Snackbar.make(view,"帐号或者密码错误.",Snackbar.LENGTH_LONG).show();
                 txt_usr.setEnabled(true);   //开放用户名输入框
                 txt_pwd.setEnabled(true);
             }
             con_prg.setVisibility(View.GONE);
+            con_prg2.setVisibility(View.GONE);
         }
     }
 }
