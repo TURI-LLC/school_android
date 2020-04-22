@@ -329,52 +329,6 @@
                     android:layout_height="match_parent">
 
                 </androidx.recyclerview.widget.RecyclerView>
-
-                <!--            <RelativeLayout-->
-                <!--                android:id="@+id/campus_headlines_Content1"-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="90dp"-->
-                <!--                android:layout_marginRight="11dp"-->
-                <!--                android:layout_marginLeft="11dp"-->
-                <!--                android:paddingTop="12dp"-->
-                <!--                android:paddingBottom="8dp">-->
-                <!--                <RelativeLayout-->
-                <!--                    android:id="@+id/campus_headlines1_left"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_centerVertical="true">-->
-                <!--                    <TextView-->
-                <!--                        android:id="@+id/campus_headlines1_title"-->
-                <!--                        android:layout_width="240dp"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:text="哈哈哈哈哈哈哈哈hhhhhhhhh哈哈哈哈哈哈哈哈aaaaaa"-->
-                <!--                        android:textColor="#333"-->
-                <!--                        android:textSize="15dp"-->
-                <!--                        android:lineHeight="22dp"/>-->
-                <!--                    <TextView-->
-                <!--                        android:id="@+id/Content1_date"-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:text="2020-4-19"-->
-                <!--                        android:textColor="#a1a3a8"-->
-                <!--                        android:layout_below="@+id/campus_headlines1_title"-->
-                <!--                        android:layout_marginTop="7dp"-->
-                <!--                        android:textSize="12dp"/>-->
-                <!--                </RelativeLayout>-->
-                <!--                <ImageView-->
-                <!--                    android:layout_width="80dp"-->
-                <!--                    android:layout_height="80dp"-->
-                <!--                    android:background="#008c8c"-->
-                <!--                    android:layout_centerVertical="true"-->
-                <!--                    android:layout_alignParentRight="true"/>-->
-                <!--            </RelativeLayout>-->
-
-
-
-
-
-
-
             </LinearLayout>
             <!--        页脚-->
             <LinearLayout

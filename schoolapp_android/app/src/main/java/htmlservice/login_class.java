@@ -24,7 +24,7 @@ public class login_class  {
 
 
     public boolean loginjosn(String user,String pwd)  {
-        String regex1 = "^[a-zA-Z][a-zA-Z0-9_]{6,15}$"; //验证用户名是否为id
+        String regex1 = "^[a-zA-Z][a-zA-Z0-9_]{5,15}$"; //验证用户名是否为id
         String regex2 ="^[0-9]{11,11}$"; //验证用户名是否为手机号
         String regex3 ="\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";//验证邮箱
         String ziduan ="";

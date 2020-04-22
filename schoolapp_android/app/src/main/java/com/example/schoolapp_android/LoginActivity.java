@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -137,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
         protected Boolean doInBackground(Void... params) {
 //            try{ Thread.sleep(2000); }catch (Exception e){e.printStackTrace();}   //测试进度条动画显示情况
             check_user check_user = new check_user();
-                if (check_user.checkuser(user)) {  //查找数据库中用户名,手机号,邮箱字段是否成功的结果
+                if (check_user.check_user(user)) {  //查找数据库中用户名,手机号,邮箱字段是否成功的结果
                     return true;
                 }else{
                     return false;   //非ui线程
