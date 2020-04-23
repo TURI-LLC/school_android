@@ -23,6 +23,14 @@ public class JavaBean {
    public String N_createOn;
    public String N_createBy;
    public String N_Time;
+   //商品表
+   public String st_name;
+   public String st_img;
+   public String st_price;
+   public String st_Discount;
+   public String st_grade;
+   public String st_pinglun;
+   public String st_address;
 
 
 }

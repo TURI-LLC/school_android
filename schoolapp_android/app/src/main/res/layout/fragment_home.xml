@@ -299,20 +299,20 @@
                         android:layout_height="13dp"
                         android:layout_centerVertical="true"
                         android:background="@drawable/main_schooltitle_bg"/>
-                    <ImageView
-                        android:layout_width="63dp"
-                        android:layout_height="16dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="12dp"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/campus_headlines"/>
-                    <ImageView
+                        android:text="校园头条"
+                        android:textStyle="bold"/>
+                    <TextView
                         android:layout_width="48dp"
                         android:layout_height="12dp"
-                        android:background="@drawable/morenews"
+                        android:text="更多消息"
+                        android:textSize="11dp"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="31dp"
-                        android:layout_centerVertical="true"
-                        />
+                        android:layout_centerVertical="true" />
                     <ImageView
                         android:layout_width="8dp"
                         android:layout_height="12dp"
@@ -324,10 +324,10 @@
                 </RelativeLayout>
                 <!--            校园头条内容-->
                 <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/recycler_view"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent">
-
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
             <!--        页脚-->

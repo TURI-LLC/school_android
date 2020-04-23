@@ -1,6 +1,6 @@
 package com.example.schoolapp_android;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -19,6 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private ImageButton btn_home,btn_course,btn_life,btn_me;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +28,25 @@ public class MainActivity extends AppCompatActivity {
         String username=sharedPreferences.getString("username","未知");    //TODO:接入用户名
         Toast.makeText(getApplicationContext(),"欢迎回来,"+username,Toast.LENGTH_SHORT).show();    //每次进入主界面时显示(不要在子页面返回时显示)
         viewPager=findViewById(R.id.pager);
+
+
+        Bundle bundle=new Bundle();
+
+        bundle.putString("username",username);
+        LifeFragment lifeFragment=new LifeFragment();
+        HomeFragment homeFragment=new HomeFragment();
+        MineFragment mineFragment=new MineFragment();
+        StoreFragment storeFragment=new StoreFragment();
+        storeFragment.setArguments(bundle);
+
         final List<Fragment> fragments=new ArrayList<>();
-        fragments.add(new HomeFragment());
-        fragments.add(new CurriculumFragment());
-        fragments.add(new LifeFragment());
-        fragments.add(new MineFragment());
+
+        fragments.add(homeFragment);
+        fragments.add(storeFragment);
+        fragments.add(lifeFragment);
+        fragments.add(mineFragment);
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+
             @Override
             public Fragment getItem(int position) {
                 return fragments.get(position);

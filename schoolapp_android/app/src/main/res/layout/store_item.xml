@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="距离:"
+            android:text="位置:"
             android:layout_toRightOf="@+id/store_img"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="15dp"
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rate"
+            android:id="@+id/grade"
             android:text="4.9分 超棒！"
             android:layout_toRightOf="@+id/store_img"
             android:layout_marginTop="75dp"

@@ -1,14 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MineFragment">
+    tools:context=".MainActivity"
+    android:background="#f6f6f6"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的" />
+        android:layout_height="60dp"
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ewm"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/xx"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp">
+
+        <Button
+            android:id="@+id/card_p"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/xk"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_marginLeft="30dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#fff"
+            app:layout_constraintBottom_toBottomOf="@+id/card_p"
+            app:layout_constraintStart_toStartOf="@+id/card_p"
+            app:layout_constraintTop_toTopOf="@+id/card_p" />
+
+        <TextView
+            android:id="@+id/lbl_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="用户"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            app:layout_constraintStart_toEndOf="@+id/user_avatar"
+            app:layout_constraintTop_toTopOf="@+id/user_avatar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="学号: 12345678"
+            android:textColor="#fff"
+            android:layout_marginBottom="5dp"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/user_avatar"
+            app:layout_constraintStart_toEndOf="@+id/user_avatar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学校名称"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:textSize="12dp"
+            android:textColor="#fff"
+            app:layout_constraintBottom_toBottomOf="@+id/card_p"
+            app:layout_constraintEnd_toEndOf="@+id/card_p" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingTop="6dp"
+                android:orientation="horizontal"
+                android:background="#fff">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/qb"/>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="校园卡"
+                    android:textSize="18dp"
+                    android:textAlignment="textStart"
+                    android:textColor="#000" />
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/jt"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingTop="6dp"
+                android:orientation="horizontal"
+                android:background="#fff"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:layout_editor_absoluteX="15dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/dg"/>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="账户"
+                    android:textSize="18dp"
+                    android:textAlignment="textStart"
+                    android:textColor="#000" />
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/jt"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingTop="6dp"
+                android:orientation="horizontal"
+                android:background="#fff"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:layout_editor_absoluteX="15dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/dd"/>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="订单"
+                    android:textSize="18dp"
+                    android:textAlignment="textStart"
+                    android:textColor="#000" />
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/jt"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingTop="6dp"
+                android:orientation="horizontal"
+                android:background="#fff"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:layout_editor_absoluteX="15dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/qz"/>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="我的圈子"
+                    android:textSize="18dp"
+                    android:textAlignment="textStart"
+                    android:textColor="#000" />
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/jt"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingTop="6dp"
+                android:orientation="horizontal"
+                android:background="#fff"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:layout_editor_absoluteX="15dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/sc"/>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="300dp"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"
+                    android:text="收藏"
+                    android:textAlignment="textStart"
+                    android:textColor="#000" />
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/jt"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingTop="6dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:background="#fff"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:layout_editor_absoluteX="15dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/sz"/>
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="300dp"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"
+                    android:text="设置"
+                    android:textAlignment="textStart"
+                    android:textColor="#000" />
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/jt"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
