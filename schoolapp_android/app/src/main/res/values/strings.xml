@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">叮咚校园</string>
-    <string name="welcome_text">欢迎</string>
     <string name="zen_text">为大学生活做减法。</string>
     <string name="agree">是的,请继续.</string>
     <string name="negative">不</string>

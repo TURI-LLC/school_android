@@ -207,9 +207,15 @@ public class RegActivity extends AppCompatActivity {
     }
     private class register extends AsyncTask<Void,String,Boolean> {
         //下拉框异步更新
+        String school;
+        String id;
+        String pwd;
         @Override
         protected void onPreExecute(){
             //任务之前
+             school=txt_school.getText().toString();
+            id =txt_name.getText().toString();
+             pwd =txt_pwd.getText().toString();
 //            loading.setTitle("正在注册...");
 //            loading.setMessage("请稍等,\n我们正在与服务器通讯.");
 //            loading.setIndeterminate(true);
@@ -219,9 +225,7 @@ public class RegActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... params) {
             //异步耗时任务
-            String school=txt_school.getText().toString();
-            String id =txt_name.getText().toString();
-            String pwd =txt_pwd.getText().toString();
+
             register_user a=new register_user();
 
             if(a.register(id,pwd,school)){

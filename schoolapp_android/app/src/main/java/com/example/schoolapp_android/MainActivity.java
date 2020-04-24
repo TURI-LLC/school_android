@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         String username=sharedPreferences.getString("username","未知");    //TODO:接入用户名
+        String pwd =sharedPreferences.getString("pwd","未知");
         Toast.makeText(getApplicationContext(),"欢迎回来,"+username,Toast.LENGTH_SHORT).show();    //每次进入主界面时显示(不要在子页面返回时显示)
         viewPager=findViewById(R.id.pager);
 
@@ -33,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle=new Bundle();
 
         bundle.putString("username",username);
+        bundle.putString("pwd",pwd);
         LifeFragment lifeFragment=new LifeFragment();
+        lifeFragment.setArguments(bundle);
         HomeFragment homeFragment=new HomeFragment();
         MineFragment mineFragment=new MineFragment();
         StoreFragment storeFragment=new StoreFragment();

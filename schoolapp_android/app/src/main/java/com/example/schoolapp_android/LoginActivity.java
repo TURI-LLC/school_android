@@ -183,6 +183,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent go2main = new Intent(ct,MainActivity.class);
                 editor.putBoolean("isLogin",true);
                 editor.putString("username",user);
+                editor.putString("pwd",pwd);
                 editor.commit();
                 startActivity(go2main);
                 finish();

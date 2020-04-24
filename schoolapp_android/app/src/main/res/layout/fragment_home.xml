@@ -9,7 +9,6 @@
     android:background="#f6f6f6">
     <!--        页头-->
     <LinearLayout
-        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:background="@drawable/main_top"
@@ -63,7 +62,6 @@
 
         <!-- TODO: Update blank fragment layout -->
         <RelativeLayout
-            android:id="@+id/body"
             android:layout_width="match_parent"
             android:layout_height="63dp">
             <!--        轮播图-->
@@ -286,7 +284,6 @@
                 android:orientation="vertical">
                 <!--            校园头条标题-->
                 <RelativeLayout
-                    android:id="@+id/campus_headlines_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/search"
@@ -332,7 +329,6 @@
             </LinearLayout>
             <!--        页脚-->
             <LinearLayout
-                android:id="@+id/footer"
                 android:layout_below="@+id/campus_headlines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -8,7 +8,6 @@
 
     >
     <RelativeLayout
-        android:id="@+id/xytt_item1_Content2"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginRight="11dp"
@@ -23,7 +22,6 @@
             android:orientation="horizontal"
             android:layout_centerVertical="true">
             <RelativeLayout
-                android:id="@+id/xytt_item1_Content2_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >

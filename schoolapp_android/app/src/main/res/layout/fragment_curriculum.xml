@@ -33,7 +33,6 @@
             app:hintEnabled="false"
             app:startIconDrawable="@drawable/ic_search_black_24dp">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_search"
                 android:layout_width="320dp"
                 android:layout_height="35dp"
                 android:hint="搜索校园商家"
