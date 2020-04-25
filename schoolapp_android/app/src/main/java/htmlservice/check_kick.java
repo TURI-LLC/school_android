@@ -19,20 +19,31 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class check_circle {
+public class check_kick {
 
 
 
-    private String addrss = "http://123.56.48.182:5000/api/check_quanzi?id=";
 
 
-    public ArrayList<JavaBean> check_quanzi(String user,int type)  {
-        if(type==0){
-            addrss="http://123.56.48.182:5000/api/check_quanzi2?id="+user;
-        }else {
-            addrss+=user+"&&type="+type;
+
+    public ArrayList<JavaBean> check_kick(String user,String pwd)  {
+        String regex1 = "^[a-zA-Z][a-zA-Z0-9_]{5,15}$"; //验证用户名是否为id
+        String regex2 ="^[0-9]{11,11}$"; //验证用户名是否为手机号
+        String regex3 ="\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";//验证邮箱
+        String ziduan ="";
+
+        if(user.matches(regex1)){
+            ziduan="id="+user;
+
+        }else if(user.matches(regex2)){
+            ziduan="phone="+user;
+
+        }else if(user.matches(regex3)){
+            ziduan="mail="+user;
+
         }
 
+        String addrss = "http://123.56.48.182:5000/api/check_kick?"+ziduan+"&&"+"pwd="+pwd;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(addrss)
@@ -56,6 +67,7 @@ public class check_circle {
                 Gson gson = new Gson();
                 JsonParser jsonParser = new JsonParser();
                 JsonArray jsonArray = jsonParser.parse(json).getAsJsonArray();
+
                 for (JsonElement bean : jsonArray) {
 
                     JavaBean bean1 = gson.fromJson(bean, JavaBean.class);

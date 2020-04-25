@@ -2,6 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LifeFragment" />
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    tools:context=".fragment.LifeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_moment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="动态"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/btn_wanted" />
+
+        <Button
+            android:id="@+id/btn_wanted"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="悬赏"
+            android:textColor="#888"
+            android:textSize="17sp"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/btn_partJob"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="兼职"
+            android:textColor="#888"
+            android:textSize="17sp"
+            android:layout_toEndOf="@id/btn_wanted"
+            android:layout_centerVertical="true"/>
+
+
+        <ImageButton
+            android:id="@+id/btn_add"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_circle"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/quanzi_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

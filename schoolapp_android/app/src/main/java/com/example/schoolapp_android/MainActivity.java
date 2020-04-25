@@ -1,6 +1,5 @@
 package com.example.schoolapp_android;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -12,6 +11,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.schoolapp_android.fragment.HomeFragment;
+import com.example.schoolapp_android.fragment.LifeFragment;
+import com.example.schoolapp_android.fragment.MineFragment;
+import com.example.schoolapp_android.fragment.StoreFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
         bundle.putString("username",username);
         bundle.putString("pwd",pwd);
+
         LifeFragment lifeFragment=new LifeFragment();
         lifeFragment.setArguments(bundle);
+
         HomeFragment homeFragment=new HomeFragment();
+
         MineFragment mineFragment=new MineFragment();
+        Bundle bundle2=new Bundle();
+
+        bundle2.putString("username",username);
+        bundle2.putString("pwd",pwd);
+        mineFragment.setArguments(bundle2);
+
         StoreFragment storeFragment=new StoreFragment();
         storeFragment.setArguments(bundle);
 
@@ -123,4 +136,5 @@ public class MainActivity extends AppCompatActivity {
         btn_life.setImageResource(R.drawable.life_grey);
         btn_me.setImageResource(R.drawable.me_grey);
     }
+
 }

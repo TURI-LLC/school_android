@@ -1,0 +1,161 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:layout_marginTop="15dp">
+
+    <Button
+        android:id="@+id/news_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/back"
+        android:onClick="back" />
+    <TextView
+        android:id="@+id/news_pager_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="校园新闻"
+        android:textColor="#000000"
+        android:layout_marginLeft="6dp"
+        android:textSize="20dp"
+        android:layout_marginTop="-21dp"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:id="@+id/news_pager_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="校园新闻"
+            android:textColor="#8d8d8d"
+            android:layout_marginLeft="6dp"
+            android:textSize="14dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/news_pager_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#505050"
+        android:textSize="17dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="15dp"
+        android:text="表白今天中午在篮球场给我递水的小姐姐。"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/left"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/news_pager_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+                android:textColor="#8d8d8d"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp"/>
+            <LinearLayout
+                android:id="@+id/ll_group"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/news_pager_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="04月23日 15：00"
+                android:textColor="#424242"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="11dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/like"
+                />
+            <TextView
+                android:id="@+id/news_pager_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:textSize="12dp"
+                android:textColor="#333"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/comment"
+            />
+        <TextView
+            android:id="@+id/news_pager_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30"
+            android:textSize="12dp"
+            android:textColor="#333"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/news_pager_pinglun"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="xxxx"
+        android:textSize="15dp"
+        android:textColor="#0000ff"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":30"
+        android:textSize="15dp"
+        android:textColor="#333"
+        android:layout_marginLeft="5dp"/>
+</LinearLayout>
+
+
+
+</LinearLayout>

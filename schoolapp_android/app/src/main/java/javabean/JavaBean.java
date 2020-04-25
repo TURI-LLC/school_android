@@ -12,6 +12,12 @@ public class JavaBean {
    public String U_kick;
    public String U_img;
    public String ok;
+   public String U_sno;
+   public String U_mail;
+   public String U_school;
+   public String U_phone;
+   public String U_volunteerHours;
+   public String U_secondClassCredit;
    //学校表javabean
    public String S_id;
    public String S_name;
@@ -25,6 +31,9 @@ public class JavaBean {
    public String N_createOn;
    public String N_createBy;
    public String N_Time;
+   public String N_classCName;
+   public String N_like;
+   public String N_comment;
    //商品表
    public String st_name;
    public String st_img;
@@ -35,7 +44,7 @@ public class JavaBean {
    public String st_address;
    //圈子表
    public String Ci_id;
-   //U_id;
+   //public String U_id;
    public int Ci_type;
    public String Ci_title;
    public String Ci_text;

@@ -55,12 +55,13 @@
             android:layout_marginLeft="30dp"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="#fff"
+
             app:layout_constraintBottom_toBottomOf="@+id/card_p"
             app:layout_constraintStart_toStartOf="@+id/card_p"
             app:layout_constraintTop_toTopOf="@+id/card_p" />
 
         <TextView
+            android:id="@+id/user_kick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -72,6 +73,7 @@
             app:layout_constraintTop_toTopOf="@+id/user_avatar" />
 
         <TextView
+            android:id="@+id/user_sno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -83,6 +85,7 @@
             app:layout_constraintStart_toEndOf="@+id/user_avatar" />
 
         <TextView
+            android:id="@+id/user_school"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="学校名称"

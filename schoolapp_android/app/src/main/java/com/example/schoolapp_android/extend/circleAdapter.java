@@ -1,4 +1,4 @@
-package com.example.schoolapp_android;
+package com.example.schoolapp_android.extend;
 
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.schoolapp_android.R;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -25,7 +27,6 @@ public class circleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private List<JavaBean> circleList;
     private String url="http://xxschoolapp.oss-cn-beijing.aliyuncs.com/img/";
-
 
     //TODO: 创建recyclerview——————————定义接口————————————
     //定义内部类ViewHolder,并继承RecyclerView.ViewHolder。
@@ -73,41 +74,69 @@ public class circleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
     /**
-     * viewHolder2为多图文模式
+     * viewHolder2表白墙
      */
-//    static class ViewHolder2 extends RecyclerView.ViewHolder{
-//        ImageView  image1;
-//        ImageView image2;
-//        ImageView image3;
-//        TextView biaoti;
-//        TextView date;
-//        TextView name;
-//        public ViewHolder2(View view) {
-//            super(view);
-//            image1=(ImageView)view.findViewById(R.id.xytt_item2_Content1_img1);
-//            image2=(ImageView)view.findViewById(R.id.xytt_item2_Content1_img2);
-//            image3=(ImageView)view.findViewById(R.id.xytt_item2_Content1_img3);
-//            biaoti=(TextView)view.findViewById(R.id.xytt_item2_Content1_title);
-//            date=(TextView)view.findViewById(R.id.xytt_item2_Content1_date);
-//            name =(TextView)view.findViewById(R.id.xytt_item2_Content1_name);
-//        }
-//    }
-//
+    static class ViewHolder2 extends RecyclerView.ViewHolder{
+        ImageView  img;
+        TextView text;
+        TextView date;
+        TextView name;
+        TextView like;
+        TextView pinglun;
+        public ViewHolder2(View view) {
+            super(view);
+            img=(ImageView)view.findViewById(R.id.quanzi2_img);
+            text =view.findViewById(R.id.quanzi2_text);
+            date=(TextView)view.findViewById(R.id.quanzi2_date);
+            name =(TextView)view.findViewById(R.id.xytt_item2_Content1_name);
+            like=view.findViewById(R.id.quanzi2_lke);
+            pinglun=view.findViewById(R.id.quanzi2_pinglun);
+        }
+    }
 
+    /**
+     * viewHolder3为兼职模式
+     */
+    static class ViewHolder3 extends RecyclerView.ViewHolder{
+        ImageView touxiang;
+        ImageView img1;
+        ImageView img2;
+        ImageView img3;
+        TextView name;
+        TextView text;
+        TextView price;
+
+        //传入的View参数通常是RecyclerView子项的最外层布局。
+        public ViewHolder3 (View view)
+        {
+            super(view);
+
+            touxiang=(ImageView)view.findViewById(R.id.quanzi3_touxiang);
+            name=(TextView)view.findViewById(R.id.quanzi3_name);
+            text=(TextView)view.findViewById(R.id.quanzi3_text);
+            price=(TextView)view.findViewById(R.id.quanzi3_price);
+            img1=(ImageView)view.findViewById(R.id.quanzi3_img1);
+            img2=(ImageView)view.findViewById(R.id.quanzi3_img2);
+            img3=(ImageView)view.findViewById(R.id.quanzi3_img3);
+
+        }
+    }
 
 
 
 
 
     //构造函数,用于把要展示的数据源传入,并赋予值给全局变量List。
-    circleAdapter (List <JavaBean> newslist){
+    public circleAdapter(List<JavaBean> newslist){
         this.circleList = newslist;
+
     }
 
     @Override
     public int getItemViewType(int position){
 
-        return  circleList.get(position).Ci_type;
+
+        return circleList.get(position).Ci_type;
 
     }
 
@@ -116,13 +145,16 @@ public class circleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //传递窗口的地方————————————
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.quanzi_item1, parent, false);
-       //View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item2, parent, false);
+        View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.quanzi_item2, parent, false);
+        View view3 = LayoutInflater.from(parent.getContext()).inflate(R.layout.quanzi_item3, parent, false);
 
         switch (viewType) {
             case 1:
                 return new ViewHolder1(view);
-            case 2:
-                return null;
+            case 2:  return new ViewHolder3(view3);
+            case 3:  return new ViewHolder3(view3);
+            case 4:
+                return new ViewHolder2(view2);
             default:   return new ViewHolder1(view);
         }
 
@@ -191,17 +223,32 @@ public class circleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
             return;
         }
-//        if(holder instanceof ViewHolder2){
-//            ((ViewHolder2) holder).biaoti.setText(title);
-//            ((ViewHolder2) holder).date.setText(time);
-//            ((ViewHolder2) holder).name.setText(by);
-//            String img = newsList.get(position).N_naviPic;
-//            String s[]=img.split("[;]");
-//            new load_image(((ViewHolder2) holder).image1).execute(url+s[0]);
-//            new load_image(((ViewHolder2) holder).image2).execute(url+s[1]);
-//            new load_image(((ViewHolder2) holder).image3).execute(url+s[2]);
-//            return;
-//        }
+        if(holder instanceof ViewHolder2){
+            ((ViewHolder2) holder).text.setText(text);
+            ((ViewHolder2) holder).date.setText(date);
+            ((ViewHolder2) holder).like.setText(like);
+            ((ViewHolder2) holder).pinglun.setText(comment);
+            if(imgs.size()>0)   new load_image(((ViewHolder2) holder).img).execute(url+imgs.get(0));
+
+
+            return;
+        }
+        if(holder instanceof ViewHolder3){
+            new load_image(((ViewHolder3) holder).touxiang,false).execute(url+touxiang);
+            ((ViewHolder3) holder).name.setText(kick);
+            ((ViewHolder3) holder).price.setText(price);
+            ((ViewHolder3) holder).text.setText(text);
+            for(int i=0;i<imgs.size();i++){
+                switch (i){
+                    case 0:new load_image(((ViewHolder3) holder).img1).execute(url+imgs.get(i));break;
+                    case 1:new load_image(((ViewHolder3) holder).img2).execute(url+imgs.get(i));break;
+                    case 2:new load_image(((ViewHolder3) holder).img3).execute(url+imgs.get(i));break;
+                }
+            }
+
+            return;
+        }
+
 
 
     }
@@ -244,6 +291,7 @@ public class circleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             if(t){
                 LinearLayout.LayoutParams params=(LinearLayout.LayoutParams)img.getLayoutParams();
                 params.weight=1;
+
                 img.setLayoutParams(params);
 
             }
@@ -257,7 +305,7 @@ public class circleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public int getItemCount(){
         return circleList.size();
     }
-
+//_______________清空
 
 
 

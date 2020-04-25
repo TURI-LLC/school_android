@@ -1,7 +1,8 @@
-package com.example.schoolapp_android;
+package com.example.schoolapp_android.fragment;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,23 +11,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.schoolapp_android.R;
+import com.example.schoolapp_android.extend.StoreAdapter;
+import com.example.schoolapp_android.extend.newsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import htmlservice.check_news;
-import htmlservice.check_user;
+
+import htmlservice.check_store;
 import javabean.JavaBean;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
-    private List<JavaBean> newslist = new ArrayList<>();
+public class StoreFragment extends Fragment {
+    private List<JavaBean>  Storelist = new ArrayList<>();
     private View view;
-    public HomeFragment() {
+    private String user;
+    public StoreFragment() {
         // Required empty public constructor
     }
 
@@ -36,32 +40,35 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+        Bundle bundle =this.getArguments();
+         user=bundle.getString("username");
+
+            new thread_valiUser().execute();
 
 
-        view = inflater.inflate(R.layout.fragment_home ,container, false);
-        new thread_valiUser().execute();
-
-
+        view = inflater.inflate(R.layout.fragment_store,container, false);
         return view;
     }
-    private class thread_valiUser extends AsyncTask<Void,String,ArrayList<JavaBean>> {
-        @Override
-        protected ArrayList<JavaBean> doInBackground(Void... params) {
-//            try{ Thread.sleep(2000); }catch (Exception e){e.printStackTrace();}   //测试进度条动画显示情况
-            check_news a=new check_news();
+    private class thread_valiUser extends AsyncTask<Void,String, ArrayList<JavaBean>> {
 
-            return a.ccheck_news();
+        @Override
+        protected ArrayList<JavaBean> doInBackground(Void... voids) {
+            check_store a=new check_store();
+
+            return a.check_store(user);
+
         }
 
-        protected void onPostExecute(ArrayList<JavaBean> list){
-            //任务完成
-            newslist=list;
-            RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
+        @Override
+        protected void onPostExecute(ArrayList<JavaBean> list) {
+            super.onPostExecute(list);
+            Storelist=list;
+            RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.store_list);
             //
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
             recyclerView.setLayoutManager(layoutManager);
             //news recyclerview适配器
-            newsAdapter adapter = new newsAdapter(newslist);
+            StoreAdapter adapter = new StoreAdapter(Storelist);
             //取消自带的滚动
             recyclerView.setHasFixedSize(true);
             recyclerView.setNestedScrollingEnabled(false);
@@ -82,15 +89,8 @@ public class HomeFragment extends Fragment {
                 }
             });
 
-//        //长按事件————————————
-//        adapter.setOnItemLongClickListener(new newsAdapter.OnItemLongClickListener() {
-//            @Override
-//            public void onClick(int position) {
-//                System.out.println("long"+position);
-//            }
-//        });
+
         }
     }
-
-    }
+}
 

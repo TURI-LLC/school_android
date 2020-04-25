@@ -12,6 +12,7 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".Son.news_pager"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/launch_theme">

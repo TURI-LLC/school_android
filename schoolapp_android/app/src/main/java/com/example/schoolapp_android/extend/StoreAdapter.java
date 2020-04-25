@@ -1,4 +1,4 @@
-package com.example.schoolapp_android;
+package com.example.schoolapp_android.extend;
 
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -8,19 +8,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.schoolapp_android.R;
 
 import java.io.InputStream;
 import java.net.URL;
-
 import java.util.List;
 
 import javabean.JavaBean;
 
-
-public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
+public class StoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private List<JavaBean> newsList;
     private String url="http://xxschoolapp.oss-cn-beijing.aliyuncs.com/img/";
 
@@ -30,52 +28,34 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /**
      * viewHolder1为单图文模式
      */
-    static class ViewHolder1 extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
         TextView biaoti;
-        TextView date;
-        TextView name;
+        TextView pingfen;
+        TextView pinglun;
+        TextView money;
+        TextView weizhi;
 
-    //传入的View参数通常是RecyclerView子项的最外层布局。
-        public ViewHolder1 (View view)
+        //传入的View参数通常是RecyclerView子项的最外层布局。
+        public ViewHolder (View view)
         {
             super(view);
 
-            image=(ImageView)view.findViewById(R.id.xytt_item1_Content2_img);
-            biaoti=(TextView)view.findViewById(R.id.xytt_item1_Content2_title);
-            date=(TextView)view.findViewById(R.id.xytt_item1_Content2_date);
-            name =(TextView)view.findViewById(R.id.xytt_item1_Content2_name);
+            image=(ImageView)view.findViewById(R.id.store_img);
+            biaoti=(TextView)view.findViewById(R.id.store_name);
+            pingfen=(TextView)view.findViewById(R.id.grade);
+            pinglun =(TextView)view.findViewById(R.id.comment_count);
+            money =(TextView)view.findViewById(R.id.price);
+            weizhi=(TextView)view.findViewById(R.id.distance);
         }
     }
-    /**
-     * viewHolder2为多图文模式
-     */
-     static class ViewHolder2 extends RecyclerView.ViewHolder{
-         ImageView  image1;
-         ImageView image2;
-         ImageView image3;
-         TextView biaoti;
-         TextView date;
-         TextView name;
-         public ViewHolder2(View view) {
-             super(view);
-             image1=(ImageView)view.findViewById(R.id.xytt_item2_Content1_img1);
-             image2=(ImageView)view.findViewById(R.id.xytt_item2_Content1_img2);
-             image3=(ImageView)view.findViewById(R.id.xytt_item2_Content1_img3);
-             biaoti=(TextView)view.findViewById(R.id.xytt_item2_Content1_title);
-             date=(TextView)view.findViewById(R.id.xytt_item2_Content1_date);
-             name =(TextView)view.findViewById(R.id.xytt_item2_Content1_name);
-         }
-     }
-
-
 
 
 
 
 
     //构造函数,用于把要展示的数据源传入,并赋予值给全局变量List。
-   newsAdapter (List <JavaBean> newslist){
+    public StoreAdapter(List<JavaBean> newslist){
         this.newsList = newslist;
     }
 
@@ -90,18 +70,12 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //用于创建ViewHolder实例,并把加载的布局传入到构造函数去,再把ViewHolder实例返回。
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //传递窗口的地方————————————
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item, parent, false);
-        View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item2, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.store_item, parent, false);
 
-        switch (viewType) {
-            case 1:
-                return new ViewHolder1(view);
-            case 2:
-                return new ViewHolder2(view2);
-            default:   return new ViewHolder1(view);
+          return new StoreAdapter.ViewHolder(view);
         }
 
-    }
+
 
 
     @Override
@@ -130,32 +104,25 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         });
 
         //设置内容的地方————————————
-        String title = newsList.get(position).N_name;
-        String time =newsList.get(position).N_Time.substring(0,10);;
-        String by =newsList.get(position).N_createBy;
+        String title = newsList.get(position).st_name;
+        String img =newsList.get(position).st_img;;
+        String price =newsList.get(position).st_price;
+        String weizhi =newsList.get(position).st_address;
+        String grade = newsList.get(position).st_grade;
+        String pinglun=newsList.get(position).st_pinglun;
 
 
-        if(holder instanceof ViewHolder1){
-            ((ViewHolder1) holder).biaoti.setText(title);
-            ((ViewHolder1) holder).date.setText(time);
-            ((ViewHolder1) holder).name.setText(by);
-            String img = newsList.get(position).N_naviPic;
-            img=url+img;
+        if(holder instanceof StoreAdapter.ViewHolder){
+           ((ViewHolder) holder).biaoti.setText(title);
+           ((ViewHolder) holder).money.setText("￥"+price);
+           ((ViewHolder) holder).pinglun.setText(pinglun+"条评论");
+           ((ViewHolder) holder).pingfen.setText(grade+"分");
+           ((ViewHolder) holder).weizhi.setText(weizhi);
 
-            new load_image(((ViewHolder1) holder).image).execute(img);
+            new StoreAdapter.load_image(((ViewHolder) holder).image).execute(url+img);
             return;
         }
-        if(holder instanceof ViewHolder2){
-            ((ViewHolder2) holder).biaoti.setText(title);
-            ((ViewHolder2) holder).date.setText(time);
-            ((ViewHolder2) holder).name.setText(by);
-            String img = newsList.get(position).N_naviPic;
-            String s[]=img.split("[;]");
-            new load_image(((ViewHolder2) holder).image1).execute(url+s[0]);
-            new load_image(((ViewHolder2) holder).image2).execute(url+s[1]);
-            new load_image(((ViewHolder2) holder).image3).execute(url+s[2]);
-            return;
-        }
+
 
 
     }
@@ -208,10 +175,10 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         void onClick(int position);
     }
 
-    private OnItemClickListener listener;
+    private newsAdapter.OnItemClickListener listener;
 
     //第二步， 写一个公共的方法
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(newsAdapter.OnItemClickListener listener) {
 
         this.listener = listener;
     }
@@ -223,14 +190,10 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         void onClick(int position);
     }
 
-    private OnItemLongClickListener longClickListener;
+    private newsAdapter.OnItemLongClickListener longClickListener;
 
-    public void setOnItemLongClickListener(OnItemLongClickListener longClickListener) {
+    public void setOnItemLongClickListener(newsAdapter.OnItemLongClickListener longClickListener) {
         this.longClickListener = longClickListener;
     }
-
-
-
-
 
 }

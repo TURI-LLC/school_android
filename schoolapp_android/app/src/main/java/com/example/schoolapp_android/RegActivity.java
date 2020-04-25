@@ -125,9 +125,6 @@ public class RegActivity extends AppCompatActivity {
         }
     }
     private void start_reg(){   //注册
-
-
-        //TODO:向服务器数据库用户表添加一条记录(要将邮件字符串toLowerCase();)
         register a=new register();
         a.execute();
 
