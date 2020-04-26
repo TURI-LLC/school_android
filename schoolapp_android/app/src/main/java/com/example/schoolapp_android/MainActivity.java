@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         lifeFragment.setArguments(bundle);
 
         HomeFragment homeFragment=new HomeFragment();
+        Bundle bundle3=new Bundle();
+        bundle3.putString("username",username);
+        homeFragment.setArguments(bundle3);
 
         MineFragment mineFragment=new MineFragment();
         Bundle bundle2=new Bundle();

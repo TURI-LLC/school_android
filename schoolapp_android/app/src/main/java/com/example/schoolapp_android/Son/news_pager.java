@@ -1,5 +1,6 @@
 package com.example.schoolapp_android.Son;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Layout;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -35,9 +37,7 @@ public class news_pager extends AppCompatActivity {
         Intent intent =getIntent();
 
         ArrayList<String> news =new ArrayList<>();
-        System.out.println("创建了：");
          news=intent.getStringArrayListExtra("list");
-        System.out.println("录入了："+news.size());
         classname=findViewById(R.id.news_pager_class);
         createby=findViewById(R.id.news_pager_name);
         text=findViewById(R.id.news_pager_text);
@@ -88,7 +88,22 @@ public class news_pager extends AppCompatActivity {
             new load_image(imageView,false,i,linearLayout).execute(url+imgs.get(i));
 
         }
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.setTitle("新闻详情");
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void back(View view){

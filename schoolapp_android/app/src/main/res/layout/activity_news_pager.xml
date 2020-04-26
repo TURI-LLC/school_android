@@ -6,21 +6,13 @@
     android:paddingRight="12dp"
     android:layout_marginTop="15dp">
 
-    <Button
-        android:id="@+id/news_back"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/back"
-        android:onClick="back" />
     <TextView
         android:id="@+id/news_pager_class"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="校园新闻"
         android:textColor="#000000"
-        android:layout_marginLeft="6dp"
         android:textSize="20dp"
-        android:layout_marginTop="-21dp"
         android:layout_gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"

@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.schoolapp_android.R;
+import com.example.schoolapp_android.Son.kebiao_activity;
 import com.example.schoolapp_android.Son.news_pager;
 import com.example.schoolapp_android.extend.newsAdapter;
 
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment {
     private List<JavaBean> newslist = new ArrayList<>();
     private View view;
     Context context;
+    private String username;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -42,11 +45,28 @@ public class HomeFragment extends Fragment {
 
 
         view = inflater.inflate(R.layout.fragment_home ,container, false);
+        ImageView imageView=view.findViewById(R.id.kechengbiao);
+        Bundle bundle =this.getArguments();
+        username=bundle.getString("username");
+        //课表页——————————————————
+        imageView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), kebiao_activity.class);
+                intent.putExtra("user",username);
+                startActivity(intent);
+            }
+        });
+
+
         new thread_valiUser().execute();
         context=this.getContext();
 
         return view;
     }
+
+
+
     private class thread_valiUser extends AsyncTask<Void,String,ArrayList<JavaBean>> {
         @Override
         protected ArrayList<JavaBean> doInBackground(Void... params) {
@@ -56,9 +76,15 @@ public class HomeFragment extends Fragment {
             return a.ccheck_news();
         }
 
+
+
+
         protected void onPostExecute(ArrayList<JavaBean> list){
             //任务完成
             newslist=list;
+            if(list.get(0).id!=null){
+            return;
+            }
             RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
             //
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -77,6 +103,7 @@ public class HomeFragment extends Fragment {
                     return false;
                 }
             });
+
             //————单击事件————————
             adapter.setOnItemClickListener(new newsAdapter.OnItemClickListener() {
                 @Override
@@ -108,6 +135,9 @@ public class HomeFragment extends Fragment {
 //        });
         }
     }
+
+
+
 
     }
 
