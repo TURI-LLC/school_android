@@ -1,5 +1,6 @@
 package com.example.schoolapp_android;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         String pwd =sharedPreferences.getString("pwd","未知");
         Toast.makeText(getApplicationContext(),"欢迎回来,"+username,Toast.LENGTH_SHORT).show();    //每次进入主界面时显示(不要在子页面返回时显示)
         viewPager=findViewById(R.id.pager);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.hide();
+        }
 
 
         Bundle bundle=new Bundle();

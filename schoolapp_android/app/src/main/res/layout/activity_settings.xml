@@ -9,17 +9,40 @@
     tools:context=".SettingsActivity"
     android:background="#f6f6f6">
         <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingTop="6dp"
+        android:orientation="horizontal"
+        android:background="#fff">
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="350dp"
+            android:layout_marginStart="20dp"
+            android:layout_height="wrap_content"
+            android:text="账号与安全"
+            android:textSize="18dp"
+            android:textAlignment="textStart"
+            android:textColor="#000" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/jt"/>
+    </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:paddingTop="6dp"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:background="#fff">
             <Button
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="350dp"
                 android:layout_marginStart="20dp"
                 android:layout_height="wrap_content"
-                android:text="账号管理"
+                android:text="身份认证"
                 android:textSize="18dp"
                 android:textAlignment="textStart"
                 android:textColor="#000" />
@@ -69,7 +92,7 @@
                 android:layout_width="350dp"
                 android:layout_marginStart="20dp"
                 android:layout_height="wrap_content"
-                android:text="通用"
+                android:text="外观设置"
                 android:textSize="18dp"
                 android:textAlignment="textStart"
                 android:textColor="#000" />
@@ -92,8 +115,58 @@
             <Button
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="350dp"
+                android:layout_marginStart="20dp"
                 android:layout_height="wrap_content"
-                android:text="关于"
+                android:text="隐私协议"
+                android:textSize="18dp"
+                android:textAlignment="textStart"
+                android:textColor="#000" />
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/jt"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingTop="6dp"
+            android:orientation="horizontal"
+            android:background="#fff"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:layout_editor_absoluteX="15dp">
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="关于百思校园"
+                android:textSize="18dp"
+                android:layout_marginStart="20dp"
+                android:textAlignment="textStart"
+                android:textColor="#000" />
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/jt"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingTop="6dp"
+            android:orientation="horizontal"
+            android:background="#fff"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:layout_editor_absoluteX="15dp">
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="帮助与反馈"
                 android:textSize="18dp"
                 android:layout_marginStart="20dp"
                 android:textAlignment="textStart"
@@ -115,7 +188,7 @@
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="22sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="60dp"/>

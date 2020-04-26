@@ -1,5 +1,6 @@
 package com.example.schoolapp_android;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
@@ -48,6 +49,10 @@ public class RegActivity extends AppCompatActivity {
         btn_submit = (ImageButton)findViewById(R.id.btn_Submit);//提交按钮
         context = this;
         btn_submit.setClickable(false); //副视图的xml不知为何属性设置无效,故在此再次声明属性.
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.hide();
+        }
         txt_name.addTextChangedListener(new TextWatcher(){   //设置用户文本框监听器
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

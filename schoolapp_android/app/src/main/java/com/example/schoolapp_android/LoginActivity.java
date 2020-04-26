@@ -1,5 +1,6 @@
 package com.example.schoolapp_android;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -44,6 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         txt_pwd = (EditText)findViewById(R.id.txt_pwd); //密码输入框
         til_usr = (TextInputLayout)findViewById(R.id.til_pwd);  //用户名输入框架
         til_pwd = (TextInputLayout)findViewById(R.id.til_pwd);  //密码输入框架
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.hide();
+        }
 
         txt_usr.addTextChangedListener(new TextWatcher(){   //设置用户文本框监听器
             @Override
