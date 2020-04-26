@@ -268,6 +268,7 @@
                     android:src="@drawable/sz"/>
                 <Button
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:id="@+id/btn_goSettings"
                     android:layout_width="300dp"
                     android:textSize="18dp"
                     android:layout_height="wrap_content"

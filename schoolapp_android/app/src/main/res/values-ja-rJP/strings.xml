@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">叮咚校園</string>
-    <string name="zen_text">貴方のキャンパスライフはどうですか?</string>
-    <string name="agree">はい</string>
-    <string name="negative">いいえ</string>
-    <string name="need_choose">これでいですが？</string>
-    <string name="request_confirm">確認してください：</string>
-</resources>
