@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         btn_Logout = findViewById(R.id.btn_logout);
     }
-    void btnLogout_Click(View v){
+    public void btnLogout_onClick(View view){
         final AlertDialog.Builder logoutDialog = new AlertDialog.Builder(SettingsActivity.this);
         logoutDialog.setIcon(R.drawable.ic_warning);
         logoutDialog.setTitle("警告");
@@ -34,9 +34,11 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putBoolean("isLogin",false);
                 editor.putString("username",null);
                 editor.putString("pwd",null);
+                editor.commit();
                 startActivity(logout);
                 finish();
             }
         });
+        logoutDialog.show();
     }
 }
