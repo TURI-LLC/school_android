@@ -255,11 +255,11 @@ public class kebiao_activity extends AppCompatActivity {
 
 
                           xinxi.add(teacher);
-                          xinxi.add(classname);
                           xinxi.add(String.valueOf(week));
                           xinxi.add(String.valueOf(start));
                           xinxi.add(String.valueOf(end));
                           xinxi.add(address);
+                          xinxi.add(zhouci);
 
 
                     //第一个值为————行  第二个值为————列

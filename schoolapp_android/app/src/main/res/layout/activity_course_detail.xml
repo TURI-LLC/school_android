@@ -163,6 +163,44 @@
                 android:textColor="#000000"/>
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/sj"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="周次:"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="20dp"/>
+                <TextView
+                    android:id="@+id/course_weekly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1-4节"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#000000"/>
+
+            </LinearLayout>
+            </LinearLayout>
     </LinearLayout>
 
 

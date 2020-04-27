@@ -19,6 +19,7 @@ public class courseDetailActivity extends AppCompatActivity {
     private TextView address;
     private TextView week;
     private TextView jie;
+    private TextView zhouci;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +40,12 @@ public class courseDetailActivity extends AppCompatActivity {
         address=findViewById(R.id.course_class);
         week=findViewById(R.id.course_week);
         jie=findViewById(R.id.course_jie);//
+        zhouci=findViewById(R.id.course_weekly);
+        classname.setText(s.get(0));
+        zhouci.setText("第"+s.get(6)+"周");
+        teacher.setText(s.get(1));
 
-        teacher.setText(s.get(0));
-        classname.setText(s.get(1));
-        week.setText("第"+s.get(2)+"周");
+        week.setText("星期"+s.get(2));
         jie.setText(s.get(3)+"—"+s.get(4)+"节");
         address.setText(s.get(5));
 
