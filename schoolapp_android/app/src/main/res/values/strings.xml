@@ -7,6 +7,7 @@
     <string name="request_confirm">请确认:</string>
 
     <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
 
     <!-- Messages Preferences -->
 

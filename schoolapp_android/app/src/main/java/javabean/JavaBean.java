@@ -70,7 +70,7 @@ public class JavaBean {
    public String Coi_start;
    public String Coi_end;
    public String Coi_week;
-   public String Coi_Festivals;
+   public int Coi_Festivals;
    public String Coi_credit;
    public String Coi_teacher;
    public String Coi_t_id;

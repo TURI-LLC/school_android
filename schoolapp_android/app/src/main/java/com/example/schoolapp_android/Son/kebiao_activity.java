@@ -22,6 +22,11 @@ import android.widget.TextView;
 import com.example.schoolapp_android.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import htmlservice.check_kebiao;
 import htmlservice.check_kecheng;
@@ -36,10 +41,12 @@ public class kebiao_activity extends AppCompatActivity {
     private ArrayList<JavaBean> kecheng;
     private String zhouci;
     private String xueqi;
+    private ArrayList<String> year=new ArrayList<>();
+    private ArrayList<Integer> maxweek=new ArrayList<>();
     private Spinner yearSpinner;
+    private Spinner weekSpinner;
     private ArrayAdapter<String> adapter = null;
-    private static final String[] yearSeason ={"2020年第一学期","2020年第二学期","2021年第一学期","2021年第二学期","2022年第一学期","2022年第二学期"};
-
+    private int jie=12;//节次//TODO:节次
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,53 +59,10 @@ public class kebiao_activity extends AppCompatActivity {
         }
         Intent intent = getIntent();
         user = intent.getStringExtra("user");
-        String[] weekly = {"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
-        tableLayout = (TableLayout) findViewById(R.id.table1);
-        tableLayout.removeAllViews();
-        tableLayout.setStretchAllColumns(true);
-        int ci=0;
-        for (int i = 1; i <= 12; i++) {
+        shuabiao();
+        new thread_valiUser().execute();
 
-            TableRow tableRow = new TableRow(kebiao_activity.this);
-            for (int j = 1; j <= 8; j++) {
-                ci++;
-                TextView text = new TextView(getApplicationContext());
-                text.setGravity(Gravity.CENTER);
-                text.setHeight(150);
-                text.setWidth(50);
-                text.setId(ci);
 
-                if (j == 1 && i != 1) {
-                    text.setText(String.valueOf(i - 1));
-                } else if (j > 1 && i == 1 && j < 9) {
-                    text.setText(weekly[j - 2]);
-                }
-                tableRow.addView(text);
-            }
-            //新建的TableRow添加到TableLayout
-            tableLayout.addView(tableRow, new TableLayout.LayoutParams(WC, MP,1));
-        }
-        zhouci="1";//TODO:周次
-//        xueqi="2019-2020第二学期"; //TODO:学期(已替换成数组yearSeason)
-        new thread_valiUser().execute();//TODO:生成方法
-
-        yearSpinner=(Spinner)findViewById(R.id.snipper_Year);
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, yearSeason);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        yearSpinner.setAdapter(adapter);
-        yearSpinner.setVisibility(View.VISIBLE);
-//        yearSpinner.setOnItemClickListener(new AdapterView.OnItemSelectedListener(){
-//            @Override
-//            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
-//                //TODO:刷新
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> arg0) {
-//
-//            }
-//
-//        });
     }
 
     @Override
@@ -118,14 +82,27 @@ public class kebiao_activity extends AppCompatActivity {
         @Override
         protected ArrayList<JavaBean> doInBackground(Void... voids) {
             check_kebiao a=new check_kebiao();
+            ArrayList<JavaBean> A=a.check_kebiao(user);
 
-            return a.check_kebiao(user);
+            return A;
         }
 
         @Override
         protected void onPostExecute(ArrayList<JavaBean> javaBeans) {
             super.onPostExecute(javaBeans);
             kebiao=javaBeans;
+            for(int i=0;i<javaBeans.size();i++){
+                year.add(javaBeans.get(i).CoA_Semester);
+            }
+            HashSet h=new HashSet(year);
+            year.clear();
+            year.addAll(h);
+            yearSpinner=(Spinner)findViewById(R.id.snipper_Year);
+            adapter = new ArrayAdapter<String>(kebiao_activity.this,android.R.layout.simple_spinner_item, year);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            yearSpinner.setAdapter(adapter);
+            yearSpinner.setVisibility(View.VISIBLE);
+            xueqi=year.get(0);
             new thread_valiUser2().execute();
         }
     }
@@ -143,11 +120,69 @@ public class kebiao_activity extends AppCompatActivity {
         protected void onPostExecute(ArrayList<JavaBean> javaBeans) {
             super.onPostExecute(javaBeans);
             kecheng=javaBeans;
+            shuabiao();
+            for(int i=0;i<javaBeans.size();i++){
+                maxweek.add(javaBeans.get(i).Coi_Festivals);
+            }
+            int max = Collections.max(maxweek);
+            ArrayList<String> number= new ArrayList<>();
+            for(int i=1;i<=max;i++){
+                number.add("第"+i+"周");
+            }
+            zhouci=number.get(0);
+            weekSpinner=(Spinner)findViewById(R.id.snipper_zhou);
+            adapter = new ArrayAdapter<String>(kebiao_activity.this,android.R.layout.simple_spinner_item, number);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            weekSpinner.setAdapter(adapter);
+            weekSpinner.setVisibility(View.VISIBLE);
+            weekSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String str=(String)weekSpinner.getSelectedItem();
+                    zhouci=str;
+                    shuaxinkecheng();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+            yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String str=(String)yearSpinner.getSelectedItem();
+                    xueqi=str;
+
+                        shuaxinkecheng();
+
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+            weekSpinner.setSelection(0,true);
+            yearSpinner.setSelection(0,true);
+
+            //over
+            }
+
+        }
+
+
+        private void shuaxinkecheng(){
             int week=0;
             int start=0;
             int end=0;
+            shuabiao();
             String address="";
             String classname="";
+            Pattern p=Pattern.compile("[^0-9]");
+            Matcher m = p.matcher(zhouci);
+            zhouci =m.replaceAll("").trim();
             for(int n=0;n<kebiao.size();n++) {
                 if(kebiao.get(n).CoA_Semester.equals(xueqi)&&kebiao.get(n).CoA_weekly.equals(zhouci)){
                     //获取第几周的课
@@ -216,7 +251,7 @@ public class kebiao_activity extends AppCompatActivity {
                                     TextView textView1;
                                     textView1=findViewById(c+8);
                                     textView=findViewById(c);
-                                    if(address!="0"){
+                                    if(address!="0"&&textView1.getText()==""){
                                         textView1.setText(address);
                                         textView1.setTextSize(11f);
                                         textView1.setTextColor(Color.rgb(255,255,255));
@@ -242,8 +277,35 @@ public class kebiao_activity extends AppCompatActivity {
 
                 }
 
-                }//over
             }
+        }
 
+        private void shuabiao(){
+            String[] weekly = {"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
+            tableLayout = (TableLayout) findViewById(R.id.table1);
+            tableLayout.removeAllViews();
+            tableLayout.setStretchAllColumns(true);
+            int ci=0;
+            for (int i = 1; i <= jie; i++) {
+
+                TableRow tableRow = new TableRow(kebiao_activity.this);
+                for (int j = 1; j <= 8; j++) {
+                    ci++;
+                    TextView text = new TextView(getApplicationContext());
+                    text.setGravity(Gravity.CENTER);
+                    text.setHeight(150);
+                    text.setWidth(50);
+                    text.setId(ci);
+
+                    if (j == 1 && i != 1) {
+                        text.setText(String.valueOf(i - 1));
+                    } else if (j > 1 && i == 1 && j < 9) {
+                        text.setText(weekly[j - 2]);
+                    }
+                    tableRow.addView(text);
+                }
+                //新建的TableRow添加到TableLayout
+                tableLayout.addView(tableRow, new TableLayout.LayoutParams(WC, MP,1));
+            }
         }
     }
