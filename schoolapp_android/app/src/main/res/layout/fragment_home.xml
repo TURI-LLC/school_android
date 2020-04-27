@@ -11,7 +11,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="63dp"
-        android:background="@drawable/main_top"
         android:orientation="horizontal"
         android:gravity="bottom">
         <ImageView
@@ -92,88 +91,47 @@
                     android:layout_marginTop="17dp"
                     android:orientation="horizontal" >
 
-                    <LinearLayout
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/main_secondclassroom"
-                            />
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="12dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/secondclassroom"/>
-                    </LinearLayout>
-                    <LinearLayout
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/erketang"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/main_volunteerhours" />
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="12dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/volunteerhours"/>
-                    </LinearLayout>
-                    <LinearLayout
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/zhiyuan"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
+                    <ImageButton
+                        android:id="@+id/kechengbiao"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/kechengbiao"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/kebiao"
-
-                            />
-                    </LinearLayout>
-                    <LinearLayout
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/kebiao"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/main_courseleave" />
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="12dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/courseleave"/>
-                    </LinearLayout>
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/qingjia"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -181,92 +139,47 @@
                     android:layout_weight="1"
                     android:layout_marginTop="17dp"
                     android:orientation="horizontal" >
-
-                    <LinearLayout
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/main_schoolactivities"
-                            />
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="12dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/schoolactivities"/>
-                    </LinearLayout>
-                    <LinearLayout
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/huodong"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/main_academicperformance" />
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="12dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/academicperformance"/>
-                    </LinearLayout>
-                    <LinearLayout
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/chengji"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/daka"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/main_checkin" />
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="12dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/checkin"/>
-                    </LinearLayout>
-                    <LinearLayout
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/card"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/main_allfunctions" />
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="12dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/allfunctions"/>
-                    </LinearLayout>
+                        android:layout_marginLeft="18dp"
+                        android:src="@drawable/quanbu"
+                        android:scaleType="fitCenter"
+                        android:background="#fff"
+                        />
                 </LinearLayout>
             </LinearLayout>
             <!--        校园头条-->
