@@ -181,11 +181,19 @@ public class kebiao_activity extends AppCompatActivity {
             shuabiao();
             String address="";
             String classname="";
+            String teacher="";
             Pattern p=Pattern.compile("[^0-9]");
             Matcher m = p.matcher(zhouci);
             zhouci =m.replaceAll("").trim();
             for(int n=0;n<kebiao.size();n++) {
                 if(kebiao.get(n).CoA_Semester.equals(xueqi)&&kebiao.get(n).CoA_weekly.equals(zhouci)){
+                    //获取老师
+                    for(int i=0;i<kecheng.size();i++){
+
+                        if(kecheng.get(i).Coi_id.equals(kebiao.get(n).Coi_id)){
+                            teacher=kecheng.get(i).Coi_teacher;
+                        }
+                    }
                     //获取第几周的课
                     if(kebiao.get(n).CoA_week==null){
                         for(int i=0;i<kecheng.size();i++){
@@ -225,6 +233,8 @@ public class kebiao_activity extends AppCompatActivity {
                         }
                     }
                     //规划课程名
+                    final ArrayList<String> xinxi=new ArrayList<>();
+                    xinxi.add(classname);
                     if(classname.length()>6){
                         classname=classname.substring(0,5)+"...";
                     }
@@ -241,12 +251,23 @@ public class kebiao_activity extends AppCompatActivity {
                     }
                     System.out.println(week+":"+start+":"+end);
                     boolean bol=true;
+
+
+
+                          xinxi.add(teacher);
+                          xinxi.add(classname);
+                          xinxi.add(String.valueOf(week));
+                          xinxi.add(String.valueOf(start));
+                          xinxi.add(String.valueOf(end));
+                          xinxi.add(address);
+
+
                     //第一个值为————行  第二个值为————列
 //
                     for (int i = 0;i<7; i++) { //列
                         for (int j = 0;j<tableLayout.getChildCount(); j++) {//行
                             if (i==week&&j>=start&&j<=end){
-                                int c= j*8+i+1;
+                                final int c= j*8+i+1;
                                 if(bol){
                                     TextView textView;
                                     TextView textView1;
@@ -268,6 +289,14 @@ public class kebiao_activity extends AppCompatActivity {
                                 }
 
                                 ((TableRow) tableLayout.getChildAt(j)).getChildAt(i).setBackgroundColor(Color.rgb(0, 150, 255));
+                                ((TableRow) tableLayout.getChildAt(j)).getChildAt(i).setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent =new Intent(kebiao_activity.this,courseDetailActivity.class);
+                                        intent.putStringArrayListExtra("xinxi",xinxi);
+                                        startActivity(intent);
+                                    }
+                                });
                             }
 
 
@@ -286,6 +315,7 @@ public class kebiao_activity extends AppCompatActivity {
             tableLayout = (TableLayout) findViewById(R.id.table1);
             tableLayout.removeAllViews();
             tableLayout.setStretchAllColumns(true);
+
             int ci=0;
             for (int i = 1; i <= jie; i++) {
 
@@ -297,6 +327,13 @@ public class kebiao_activity extends AppCompatActivity {
                     text.setHeight(150);
                     text.setWidth(50);
                     text.setId(ci);
+//                    text.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            System.out.println(v.getId());
+//                        }
+//                    });
+
 
                     if (j == 1 && i != 1) {
                         text.setText(String.valueOf(i - 1));
@@ -308,5 +345,10 @@ public class kebiao_activity extends AppCompatActivity {
                 //新建的TableRow添加到TableLayout
                 tableLayout.addView(tableRow, new TableLayout.LayoutParams(WC, MP,1));
             }
+
+
+
+
+
         }
     }
