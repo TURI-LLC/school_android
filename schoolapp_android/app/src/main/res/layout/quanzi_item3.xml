@@ -85,7 +85,6 @@
             android:orientation="horizontal"
             android:layout_marginTop="15dp">
             <Button
-                android:id="@+id/quanzi3_lianxi"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -96,7 +95,6 @@
                 android:layout_marginLeft="20dp"
                 />
             <Button
-                android:id="@+id/quanzi3_shenqing"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

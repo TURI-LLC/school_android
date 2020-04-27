@@ -10,7 +10,11 @@ import android.os.Bundle;
 import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -32,14 +36,23 @@ public class kebiao_activity extends AppCompatActivity {
     private ArrayList<JavaBean> kecheng;
     private String zhouci;
     private String xueqi;
+    private Spinner yearSpinner;
+    private ArrayAdapter<String> adapter = null;
+    private static final String[] yearSeason ={"2020年第一学期","2020年第二学期","2021年第一学期","2021年第二学期","2022年第一学期","2022年第二学期"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kebiao);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.setTitle("课程表");
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         Intent intent = getIntent();
         user = intent.getStringExtra("user");
-        String[] weekly = {"星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期天"};
+        String[] weekly = {"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
         tableLayout = (TableLayout) findViewById(R.id.table1);
         tableLayout.removeAllViews();
         tableLayout.setStretchAllColumns(true);
@@ -63,19 +76,29 @@ public class kebiao_activity extends AppCompatActivity {
                 tableRow.addView(text);
             }
             //新建的TableRow添加到TableLayout
-
             tableLayout.addView(tableRow, new TableLayout.LayoutParams(WC, MP,1));
-
         }
         zhouci="1";//TODO:周次
-        xueqi="2019-2020第二学期"; //TODO:学期
+//        xueqi="2019-2020第二学期"; //TODO:学期(已替换成数组yearSeason)
         new thread_valiUser().execute();//TODO:生成方法
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar!=null){
-            actionBar.setTitle("课程表");
-            actionBar.setHomeButtonEnabled(true);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+
+        yearSpinner=(Spinner)findViewById(R.id.snipper_Year);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, yearSeason);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        yearSpinner.setAdapter(adapter);
+        yearSpinner.setVisibility(View.VISIBLE);
+//        yearSpinner.setOnItemClickListener(new AdapterView.OnItemSelectedListener(){
+//            @Override
+//            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+//                //TODO:刷新
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> arg0) {
+//
+//            }
+//
+//        });
     }
 
     @Override
@@ -127,7 +150,7 @@ public class kebiao_activity extends AppCompatActivity {
             String classname="";
             for(int n=0;n<kebiao.size();n++) {
                 if(kebiao.get(n).CoA_Semester.equals(xueqi)&&kebiao.get(n).CoA_weekly.equals(zhouci)){
-                    //获取第几星期的课
+                    //获取第几周的课
                     if(kebiao.get(n).CoA_week==null){
                         for(int i=0;i<kecheng.size();i++){
 

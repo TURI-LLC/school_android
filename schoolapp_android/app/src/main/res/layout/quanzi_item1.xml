@@ -36,7 +36,6 @@ android:paddingRight="12dp">
         android:layout_marginBottom="2dp"
         android:textSize="12dp"/>
     <ImageView
-        android:id="@+id/personMore"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/ic_arrow_down"
