@@ -1,5 +1,6 @@
 package com.example.schoolapp_android;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
@@ -48,6 +49,10 @@ public class RegActivity extends AppCompatActivity {
         btn_submit = (ImageButton)findViewById(R.id.btn_Submit);//提交按钮
         context = this;
         btn_submit.setClickable(false); //副视图的xml不知为何属性设置无效,故在此再次声明属性.
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.hide();
+        }
         txt_name.addTextChangedListener(new TextWatcher(){   //设置用户文本框监听器
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -125,9 +130,6 @@ public class RegActivity extends AppCompatActivity {
         }
     }
     private void start_reg(){   //注册
-
-
-        //TODO:向服务器数据库用户表添加一条记录(要将邮件字符串toLowerCase();)
         register a=new register();
         a.execute();
 
@@ -207,9 +209,15 @@ public class RegActivity extends AppCompatActivity {
     }
     private class register extends AsyncTask<Void,String,Boolean> {
         //下拉框异步更新
+        String school;
+        String id;
+        String pwd;
         @Override
         protected void onPreExecute(){
             //任务之前
+             school=txt_school.getText().toString();
+            id =txt_name.getText().toString();
+             pwd =txt_pwd.getText().toString();
 //            loading.setTitle("正在注册...");
 //            loading.setMessage("请稍等,\n我们正在与服务器通讯.");
 //            loading.setIndeterminate(true);
@@ -219,9 +227,7 @@ public class RegActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... params) {
             //异步耗时任务
-            String school=txt_school.getText().toString();
-            String id =txt_name.getText().toString();
-            String pwd =txt_pwd.getText().toString();
+
             register_user a=new register_user();
 
             if(a.register(id,pwd,school)){

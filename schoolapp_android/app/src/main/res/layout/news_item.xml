@@ -8,7 +8,6 @@
 
     >
     <RelativeLayout
-        android:id="@+id/xytt_item1_Content2"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginRight="11dp"
@@ -23,18 +22,21 @@
             android:orientation="horizontal"
             android:layout_centerVertical="true">
             <RelativeLayout
-                android:id="@+id/xytt_item1_Content2_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
+
                 <TextView
                     android:id="@+id/xytt_item1_Content2_title"
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="0dp"
+                    android:lineHeight="22dp"
                     android:text="科学家首次发现中子星"
                     android:textColor="#333"
-                    android:textSize="15dp"
-                    android:lineHeight="22dp"/>
+                    android:textSize="15dp" />
+
                 <TextView
                     android:id="@+id/xytt_item1_Content2_date"
                     android:layout_width="wrap_content"

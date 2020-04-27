@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="#f6f6f6"
-    tools:context=".CurriculumFragment">
+    tools:context=".fragment.StoreFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="63dp"

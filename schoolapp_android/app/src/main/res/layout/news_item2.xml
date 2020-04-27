@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
-        android:id="@+id/xytt_item2_Content1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="11dp"
@@ -68,14 +67,14 @@
             <TextView
                 android:id="@+id/xytt_item2_Content1_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="松花网"
-                android:textColor="#a1a3a8"
-                android:layout_below="@+id/xytt_item1_Content1_title"
-                android:layout_marginTop="7dp"
-                android:layout_toRightOf="@+id/xytt_item1_Content1_date"
-                android:layout_marginLeft="20dp"
-                android:textSize="12dp"/>
+            android:layout_height="wrap_content"
+            android:text="松花网"
+            android:textColor="#a1a3a8"
+            android:layout_below="@+id/xytt_item1_Content1_title"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@+id/xytt_item1_Content1_date"
+            android:layout_marginLeft="20dp"
+            android:textSize="12dp"/>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

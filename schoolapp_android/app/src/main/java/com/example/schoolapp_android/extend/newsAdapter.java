@@ -1,4 +1,4 @@
-package com.example.schoolapp_android;
+package com.example.schoolapp_android.extend;
 
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.schoolapp_android.R;
 
 import java.io.InputStream;
 import java.net.URL;
-import java.text.SimpleDateFormat;
+
 import java.util.List;
 
 import javabean.JavaBean;
@@ -75,14 +77,12 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     //构造函数,用于把要展示的数据源传入,并赋予值给全局变量List。
-   newsAdapter (List <JavaBean> newslist){
+    public newsAdapter(List<JavaBean> newslist){
         this.newsList = newslist;
-        System.out.println(newslist);
     }
 
     @Override
     public int getItemViewType(int position){
-        System.out.println("ps:"+position);
 
         return  newsList.get(position).N_style;
 
@@ -132,11 +132,9 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         });
 
         //设置内容的地方————————————
-        //holder.fruitName.setText(newsList.get(position).N_name);
-//        holder.fruitImage.setImageResource(fruit.getImageId());
         String title = newsList.get(position).N_name;
-        String time =newsList.get(position).N_createOn;;
-        String by =newsList.get(position).N_Time;
+        String time =newsList.get(position).N_Time.substring(0,10);
+        String by =newsList.get(position).N_createBy;
 
 
         if(holder instanceof ViewHolder1){
