@@ -46,7 +46,7 @@ public class kebiao_activity extends AppCompatActivity {
     private Spinner yearSpinner;
     private Spinner weekSpinner;
     private ArrayAdapter<String> adapter = null;
-    private int jie=12;//节次//TODO:节次
+    private int jie=12;//节次
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

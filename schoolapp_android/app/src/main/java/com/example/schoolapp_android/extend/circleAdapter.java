@@ -28,7 +28,6 @@ public class circleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private List<JavaBean> circleList;
     private String url="http://xxschoolapp.oss-cn-beijing.aliyuncs.com/img/";
 
-    //TODO: 创建recyclerview——————————定义接口————————————
     //定义内部类ViewHolder,并继承RecyclerView.ViewHolder。
     /**
      * viewHolder1为说说模式

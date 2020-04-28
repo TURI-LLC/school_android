@@ -26,8 +26,6 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<JavaBean> newsList;
     private String url="http://xxschoolapp.oss-cn-beijing.aliyuncs.com/img/";
 
-
-    //TODO: 创建recyclerview——————————定义接口————————————
     //定义内部类ViewHolder,并继承RecyclerView.ViewHolder。
     /**
      * viewHolder1为单图文模式
@@ -203,8 +201,6 @@ public class newsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
 
-
-    //TODO:创建单击监听接口与方法
     //第一步 定义接口
     public interface OnItemClickListener {
         void onClick(int position);

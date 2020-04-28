@@ -249,7 +249,7 @@ public class RegActivity extends AppCompatActivity {
                 editor.commit();
                 startActivity(go2main);
             }else{
-                String err_msg="发生错误,请稍后再试.";//TODO:此处改为传值注册失败消息
+                String err_msg="发生错误,请稍后再试.";//TODO:此处改为传值注册失败消息(低优先级)
                 snackBar_err(findViewById(R.id.reg_view),err_msg);  //向用户提供错误信息
             }
 
