@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+
+        android:visibility="visible"
+        android:id="@+id/course_admin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/jiaowu_main"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_marginTop="100dp"
+            android:id="@+id/course_m_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="请输入教务管理密码"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:singleLine="true"
+            android:ems="10"
+            android:textSize="15dp" />
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/jiaowu_main_login"
+            android:onClick="onclick3" />
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/course_toplayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="课程信息管理系统"
+                android:gravity="center"
+                android:textSize="30dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+<LinearLayout
+    android:visibility="gone"
+    android:id="@+id/course_endlayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/boder"
+            >
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+
+            >
+            <Button
+                android:gravity="center"
+                android:id="@+id/gongneng1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="添加"
+                android:textSize="20dp"
+                android:textColor="#333"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+
+                >
+                <Button
+                    android:gravity="center"
+                    android:id="@+id/gongneng2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="更改"
+                    android:textSize="20dp"
+                    android:textColor="#333"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                >
+                <Button
+                    android:gravity="center"
+                    android:id="@+id/gongneng3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="删除"
+                    android:textSize="20dp"
+                    android:textColor="#333"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+
+                >
+                <Button
+                    android:gravity="center"
+                    android:id="@+id/gongneng4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="查询"
+                    android:textSize="20dp"
+                    android:textColor="#333"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程编号"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="可选项，自增编号"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:singleLine="true"
+                android:ems="10"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程名称"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="必填"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="none"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程类型"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="必填"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="none"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程学分"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_credit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="必填"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:ems="10"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="初始总节"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_countjie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="必填"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:singleLine="true"
+                android:ems="10"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="初始星期"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="必填"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="初始节："
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_start"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="必填"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:singleLine="true"
+                android:ems="10"
+                android:textSize="15dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="节，到第"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_end"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="必填"
+                android:layout_weight="1"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:singleLine="true"
+                android:ems="10"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上限人数"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_m_countpeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="必填"
+                android:textColorHint="#FF4500"
+                android:imeOptions="actionDone"
+                android:inputType="none"
+                android:singleLine="true"
+                android:ems="10"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+</LinearLayout>
+
+
+

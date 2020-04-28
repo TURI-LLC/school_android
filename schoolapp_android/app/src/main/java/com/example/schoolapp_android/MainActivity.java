@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.example.schoolapp_android.fragment.HomeFragment;
 import com.example.schoolapp_android.fragment.LifeFragment;
 import com.example.schoolapp_android.fragment.MineFragment;
 import com.example.schoolapp_android.fragment.StoreFragment;
+import com.example.schoolapp_android.jiaowu.course_manager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,6 +139,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
         }
+    }
+    public void onClick2(View v) {
+        Intent intent =new Intent(this, course_manager.class);
+        startActivity(intent);
     }
     private void resetBottom(){ //重设底部按钮颜色
         btn_home.setImageResource(R.drawable.main_grey);
