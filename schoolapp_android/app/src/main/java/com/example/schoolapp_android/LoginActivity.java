@@ -21,7 +21,11 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
+
 import htmlservice.*;
+import javabean.JavaBean;
+
 public class LoginActivity extends AppCompatActivity {
     private EditText txt_usr;
     private TextInputLayout til_usr;
@@ -167,38 +171,60 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private class thread_valiPwd extends AsyncTask<Void,String,Boolean>{
+    private class thread_valiPwd extends AsyncTask<Void,String,Boolean> {
         @Override
         protected Boolean doInBackground(Void... params) {
             //异步耗时任务
-            login_class login=new login_class();
+            login_class login = new login_class();
 
-                if (login.loginjosn(user,pwd)) {  //判断帐号密码
-                    return true;
-                }else{
-                    return false;   //非ui线程
-                }
+            if (login.loginjosn(user, pwd)) {  //判断帐号密码
+                return true;
+            } else {
+                return false;   //非ui线程
+            }
         }
 
-        protected void onPostExecute(Boolean b){
+        protected void onPostExecute(Boolean b) {
             //任务完成
-            if(b){
-                SharedPreferences sharedPreferences = getSharedPreferences("settings",Context.MODE_PRIVATE);
+            new thread_valixinxi(b).execute();
+
+        }
+    }
+
+    private class thread_valixinxi extends AsyncTask<Void,String, ArrayList<JavaBean>>{
+        private boolean a=false;
+        private thread_valixinxi(boolean b){
+            this.a=b;
+        }
+
+        @Override
+        protected ArrayList<JavaBean> doInBackground(Void... voids) {
+            check_kick kick =new check_kick();
+
+            return kick.check_kick(user,pwd);
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<JavaBean> javaBeans) {
+            super.onPostExecute(javaBeans);
+            if (a) {
+                SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                Intent go2main = new Intent(ct,MainActivity.class);
-                editor.putBoolean("isLogin",true);
-                editor.putString("username",user);
-                editor.putString("pwd",pwd);
+                Intent go2main = new Intent(ct, MainActivity.class);
+                editor.putBoolean("isLogin", true);
+                editor.putString("username", javaBeans.get(0).U_id);
+                editor.putString("pwd", pwd);
                 editor.commit();
                 startActivity(go2main);
                 finish();
-            }else{
-                Snackbar.make(view,"帐号或者密码错误.",Snackbar.LENGTH_LONG).show();
+            } else {
+                Snackbar.make(view, "帐号或者密码错误.", Snackbar.LENGTH_LONG).show();
                 txt_usr.setEnabled(true);   //开放用户名输入框
                 txt_pwd.setEnabled(true);
             }
             con_prg.setVisibility(View.GONE);
             con_prg2.setVisibility(View.GONE);
+            }
         }
-    }
 }
+
