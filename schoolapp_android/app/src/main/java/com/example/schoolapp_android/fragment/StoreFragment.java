@@ -1,5 +1,6 @@
 package com.example.schoolapp_android.fragment;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.schoolapp_android.R;
+import com.example.schoolapp_android.Son.OrderActivity;
 import com.example.schoolapp_android.extend.StoreAdapter;
 import com.example.schoolapp_android.extend.newsAdapter;
 
