@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
 
@@ -14,17 +15,23 @@
         android:background="@drawable/jiaowu_main"
         >
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_marginTop="100dp"
-            android:id="@+id/course_m_admin"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_pwd"
+            android:background="#fff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="请输入教务管理密码"
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            android:singleLine="true"
-            android:ems="10"
-            android:textSize="15dp" />
+            android:layout_marginTop="145dp"
+            app:passwordToggleEnabled="true"
+            app:startIconDrawable="@drawable/lock_black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_pwd"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="密码"
+                android:inputType="textWebPassword"
+                android:textSize="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <ImageButton
@@ -39,34 +46,12 @@
 
 
 
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/course_toplayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="课程信息管理系统"
-                android:gravity="center"
-                android:textSize="30dp"
-                />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-
-
 <LinearLayout
     android:visibility="gone"
     android:id="@+id/course_endlayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingRight="20dp"
     android:layout_marginTop="20dp"
     android:orientation="horizontal">
 

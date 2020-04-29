@@ -87,22 +87,22 @@
             android:visibility="gone" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="145dp"
-            android:visibility="gone"
-            app:passwordToggleEnabled="true"
-            app:startIconDrawable="@drawable/lock_black">
+        android:id="@+id/til_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="145dp"
+        android:visibility="gone"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/lock_black">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_pwd"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:hint="密码"
-                android:inputType="textWebPassword"
-                android:textSize="15dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_pwd"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="密码"
+            android:inputType="textWebPassword"
+            android:textSize="15dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
         <ProgressBar
             android:id="@+id/connection_prg2"

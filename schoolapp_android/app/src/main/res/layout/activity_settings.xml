@@ -141,6 +141,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:onClick="btnAbout_onClick"
                 android:text="关于百思校园"
                 android:textSize="18dp"
                 android:layout_marginStart="20dp"

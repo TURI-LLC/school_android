@@ -14,9 +14,13 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         if(sharedPreferences.getBoolean("isLogin",false)){
-            startActivity(new Intent(SplashActivity.this,MainActivity.class));
+            Intent go2main = new Intent(SplashActivity.this,MainActivity.class);
+            go2main.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(go2main);
         }else{
-            startActivity(new Intent(SplashActivity.this,LoginActivity.class));
+            Intent go2Login = new Intent(SplashActivity.this,LoginActivity.class);
+            go2Login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(go2Login);
         }
 
         finish();

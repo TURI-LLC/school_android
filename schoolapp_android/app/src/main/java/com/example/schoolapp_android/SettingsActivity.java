@@ -64,4 +64,9 @@ public class SettingsActivity extends AppCompatActivity {
         });
         logoutDialog.show();
     }
+
+    public void btnAbout_onClick(View view) {
+        Intent go2About = new Intent(this,AboutActivity.class);
+        startActivity(go2About);
+    }
 }
