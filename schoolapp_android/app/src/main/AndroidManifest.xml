@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity android:name=".Son.OrderActivity"></activity>
+        <activity android:name=".jiaowu.course_manager"></activity>
         <activity android:name=".Son.courseDetailActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".Son.news_pager" />

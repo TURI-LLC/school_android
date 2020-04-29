@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,10 +21,11 @@ import com.example.schoolapp_android.SettingsActivity;
 
 import htmlservice.check_kick;
 import javabean.JavaBean;
-
+import com.example.schoolapp_android.jiaowu.course_manager;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.security.AccessControlContext;
 import java.util.ArrayList;
 
 
@@ -40,6 +42,7 @@ public class MineFragment extends Fragment {
     TextView sno;
     TextView school;
     Button btn_Settings;
+
     public MineFragment() {
         // Required empty public constructor
     }
@@ -63,7 +66,11 @@ public class MineFragment extends Fragment {
         kick=view.findViewById(R.id.user_kick);
         img=view.findViewById(R.id.user_avatar);
         new checkkick().execute();
+
+
         return view;
+
+
     }
 
 
