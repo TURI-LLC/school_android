@@ -3,6 +3,7 @@
     package="com.example.schoolapp_android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -11,8 +12,8 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".AboutActivity"/>
+        <activity android:name=".secondClassActivity"></activity>
+        <activity android:name=".AboutActivity" />
         <activity android:name=".Son.OrderActivity" />
         <activity android:name=".jiaowu.course_manager" />
         <activity android:name=".Son.courseDetailActivity" />
@@ -23,6 +24,7 @@
             android:theme="@style/launch_theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
