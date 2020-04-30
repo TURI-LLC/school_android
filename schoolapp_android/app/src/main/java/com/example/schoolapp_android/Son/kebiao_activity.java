@@ -22,7 +22,6 @@ import android.widget.TextView;
 import com.example.schoolapp_android.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.regex.Matcher;
@@ -291,7 +290,7 @@ public class kebiao_activity extends AppCompatActivity {
                                 ((TableRow) tableLayout.getChildAt(j)).getChildAt(i).setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        Intent intent =new Intent(kebiao_activity.this,courseDetailActivity.class);
+                                        Intent intent =new Intent(kebiao_activity.this, coursexq_Activity.class);
                                         intent.putStringArrayListExtra("xinxi",xinxi);
                                         startActivity(intent);
                                     }

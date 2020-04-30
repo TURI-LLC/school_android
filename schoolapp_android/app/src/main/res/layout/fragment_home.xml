@@ -124,6 +124,7 @@
                     android:orientation="horizontal" >
 
                     <ImageButton
+                        android:id="@+id/home_second_hous"
                         android:layout_width="0dp"
                         android:layout_height="44dp"
                         android:layout_weight="1"

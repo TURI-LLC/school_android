@@ -13,7 +13,7 @@ import com.example.schoolapp_android.R;
 
 import java.util.ArrayList;
 
-public class courseDetailActivity extends AppCompatActivity {
+public class coursexq_Activity extends AppCompatActivity {
     private TextView teacher;
     private TextView classname;
     private TextView address;

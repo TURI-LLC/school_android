@@ -16,7 +16,7 @@
         <activity android:name=".AboutActivity" />
         <activity android:name=".Son.OrderActivity" />
         <activity android:name=".jiaowu.course_manager" />
-        <activity android:name=".Son.courseDetailActivity" />
+        <activity android:name=".Son.coursexq_Activity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".Son.news_pager" />
         <activity

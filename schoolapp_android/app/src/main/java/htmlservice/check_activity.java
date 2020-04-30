@@ -19,10 +19,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class check_hous_2credit {
-        String url="http://123.56.48.182:5000/api/";
-    public ArrayList<JavaBean> check_hous(String user)  {
-         String url2=url+"check_hours?id="+user;
+public class check_activity {
+    String url="http://123.56.48.182:5000/api/";
+    public ArrayList<JavaBean> check_activityall(String user)  {
+        String url2=url+"check_activity?id="+user+"&flag1=1&flag2=2";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url2)
@@ -71,57 +71,6 @@ public class check_hous_2credit {
 
     }
 
-    public ArrayList<JavaBean> check_2credit(String user)  {
-
-        String url2=url+"check_2_credit?id="+user;
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url2)
-                .get()
-                .build();
-        Call call = client.newCall(request);
-        final CountDownLatch latch=new CountDownLatch(1);
-        final ArrayList<JavaBean> beans = new ArrayList<>();
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                latch.countDown();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-                ResponseBody resbody = response.body();
-                final String json = resbody.string();
-
-                Gson gson = new Gson();
-                JsonParser jsonParser = new JsonParser();
-                JsonArray jsonArray = jsonParser.parse(json).getAsJsonArray();
-
-                for (JsonElement bean : jsonArray) {
-
-                    JavaBean bean1 = gson.fromJson(bean, JavaBean.class);
-                    beans.add(bean1);
-
-
-                }
-
-                latch.countDown();
-
-
-
-            }
-
-        });
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        return beans;
-
-    }
 
 
 }
