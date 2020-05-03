@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".secondClassActivity"></activity>
         <activity android:name=".AboutActivity" />
-        <activity android:name=".Son.OrderActivity" />
+        <activity android:name=".Son.Shopitem_Activity" />
         <activity android:name=".jiaowu.course_manager" />
         <activity android:name=".Son.coursexq_Activity" />
         <activity android:name=".SettingsActivity" />

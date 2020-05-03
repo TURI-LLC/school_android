@@ -35,6 +35,7 @@ public class JavaBean {
    public String N_like;
    public String N_comment;
    //商品表
+   public String st_id;
    public String st_name;
    public String st_img;
    public String st_price;
@@ -42,6 +43,17 @@ public class JavaBean {
    public String st_grade;
    public String st_pinglun;
    public String st_address;
+   //商品列表
+   public String sp_id;
+   public String sp_name;
+   public String sp_type;
+   public String sp_price;
+   public String sp_sketch;
+   public String sp_count;
+   public String sp_sell;
+   public String sp_img;
+   public int sp_number;
+
    //圈子表
    public String Ci_id;
    //public String U_id;

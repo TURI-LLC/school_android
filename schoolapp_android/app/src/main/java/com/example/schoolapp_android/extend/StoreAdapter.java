@@ -19,9 +19,9 @@ import java.util.List;
 import javabean.JavaBean;
 
 public class StoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-    private List<JavaBean> newsList;
+    private List<JavaBean> List;
     private String url="http://xxschoolapp.oss-cn-beijing.aliyuncs.com/img/";
-
+    private onRecyclerItemClickerListener mListener;
     //定义内部类ViewHolder,并继承RecyclerView.ViewHolder。
     /**
      * viewHolder1为单图文模式
@@ -47,21 +47,36 @@ public class StoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             weizhi=(TextView)view.findViewById(R.id.distance);
         }
     }
-
-
-
-
-
-    //构造函数,用于把要展示的数据源传入,并赋予值给全局变量List。
-    public StoreAdapter(List<JavaBean> newslist){
-        this.newsList = newslist;
+    /**
+     * 增加点击监听
+     */
+    public void setItemListener(onRecyclerItemClickerListener mListener) {
+        this.mListener = mListener;
     }
 
-    @Override
-    public int getItemViewType(int position){
+    /**
+     * 点击监听回调接口
+     */
+    public interface onRecyclerItemClickerListener {
+        void onRecyclerItemClick(View view, Object data, int position);
+    }
 
-        return  newsList.get(position).N_style;
-
+    //构造函数,用于把要展示的数据源传入,并赋予值给全局变量List。
+    public StoreAdapter(List<JavaBean> list){
+        this.List = list;
+    }
+    /**
+     * 点击
+     */
+    private View.OnClickListener getOnClickListener(final int po){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null && v != null) {
+                    mListener.onRecyclerItemClick(v, List.get(po), po);
+                }
+            }
+        };
     }
 
     @Override
@@ -69,8 +84,9 @@ public class StoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //传递窗口的地方————————————
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.store_item, parent, false);
+        final RecyclerView.ViewHolder holder = new ViewHolder(view);
 
-          return new StoreAdapter.ViewHolder(view);
+          return holder;
         }
 
 
@@ -80,48 +96,29 @@ public class StoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     //则是用于对子项的数据进行赋值,会在每个子项被滚动到屏幕内时执行
     //position得到当前index的List实例。
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position){
-        final int po=position;
-
-        //单击监听
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onClick(po);
-                }
-            }
-        });
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (longClickListener != null) {
-                    longClickListener.onClick(po);
-                }
-                return true;
-            }
-        });
 
         //设置内容的地方————————————
-        String title = newsList.get(position).st_name;
-        String img =newsList.get(position).st_img;;
-        String price =newsList.get(position).st_price;
-        String weizhi =newsList.get(position).st_address;
-        String grade = newsList.get(position).st_grade;
-        String pinglun=newsList.get(position).st_pinglun;
+        String title = List.get(position).st_name;
+        String img =List.get(position).st_img;;
+        String price =List.get(position).st_price;
+        String weizhi =List.get(position).st_address;
+        String grade = List.get(position).st_grade;
+        String pinglun=List.get(position).st_pinglun;
 
 
-        if(holder instanceof StoreAdapter.ViewHolder){
+        if(holder instanceof ViewHolder){
+            holder.itemView.setOnClickListener(getOnClickListener(position));
+            new  load_image(((ViewHolder) holder).image).execute(url+img);
            ((ViewHolder) holder).biaoti.setText(title);
            ((ViewHolder) holder).money.setText("￥"+price);
            ((ViewHolder) holder).pinglun.setText(pinglun+"条评论");
            ((ViewHolder) holder).pingfen.setText(grade+"分");
            ((ViewHolder) holder).weizhi.setText(weizhi);
 
-            new StoreAdapter.load_image(((ViewHolder) holder).image).execute(url+img);
-            return;
+
         }
 
-
+    return;
 
     }
 
@@ -140,6 +137,7 @@ public class StoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     class load_image extends AsyncTask<String, Void, Drawable> {
 
         ImageView img;
+        boolean t;
         load_image(ImageView img) {
             // list all the parameters like in normal class define
 
@@ -162,33 +160,7 @@ public class StoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     @Override
     //返回RecyclerView的子项数目
     public int getItemCount(){
-        return newsList.size();
-    }
-
-    //第一步 定义接口
-    public interface OnItemClickListener {
-        void onClick(int position);
-    }
-
-    private newsAdapter.OnItemClickListener listener;
-
-    //第二步， 写一个公共的方法
-    public void setOnItemClickListener(newsAdapter.OnItemClickListener listener) {
-
-        this.listener = listener;
-    }
-
-
-
-
-    public interface OnItemLongClickListener {
-        void onClick(int position);
-    }
-
-    private newsAdapter.OnItemLongClickListener longClickListener;
-
-    public void setOnItemLongClickListener(newsAdapter.OnItemLongClickListener longClickListener) {
-        this.longClickListener = longClickListener;
+        return List.size();
     }
 
 }

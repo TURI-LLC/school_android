@@ -23,17 +23,17 @@
                 android:layout_marginTop="10dp">
 
                 <ImageView
-                    android:id="@+id/Img_icon"
+                    android:id="@+id/shop_img"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginLeft="18dp"/>
 
                 <TextView
-                    android:id="@+id/txt_1"
+                    android:id="@+id/shop_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="安和yAng的面包"
-                    android:layout_toRightOf="@id/Img_icon"
+                    android:layout_toRightOf="@+id/shop_img"
                     android:textSize="18dp"
                     android:textColor="#000000"
                     android:layout_marginTop="10dp"
@@ -45,8 +45,8 @@
                     android:layout_height="20dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/ty"
-                    android:layout_below="@id/txt_1"
-                    android:layout_alignLeft="@id/txt_1"/>
+                    android:layout_below="@id/shop_title"
+                    android:layout_alignLeft="@id/shop_title"/>
 
                 <ImageView
                     android:id="@+id/Img_Dz"
@@ -58,7 +58,7 @@
                     android:layout_marginLeft="142dp"/>
 
                 <TextView
-                    android:id="@+id/lbl_Address"
+                    android:id="@+id/shop_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="智图南路888号"
@@ -77,7 +77,7 @@
                     android:layout_marginRight="10dp"/>
 
                 <TextView
-                    android:id="@+id/lbl_Rate"
+                    android:id="@+id/shop_pingfen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4.0"
@@ -131,16 +131,39 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <!--            点餐分类列表-->
-            <ScrollView
+            <LinearLayout
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:background="#F3EDE8"/>
+                android:background="#F3EDE8">
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shopitem_type_recy"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <!--            商品分类列表-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/shopitem_recy"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent">
+                </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
+
+
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
