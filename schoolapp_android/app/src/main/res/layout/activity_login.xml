@@ -153,6 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:text="帮助"
+            android:onClick="btnHelp_Click"
             android:textColor="#fff"
             android:textSize="18sp" />
 

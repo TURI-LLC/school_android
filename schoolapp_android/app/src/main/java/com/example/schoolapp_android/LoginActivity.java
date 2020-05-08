@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -138,6 +139,10 @@ public class LoginActivity extends AppCompatActivity {
         Intent go2reg = new Intent(this,RegActivity.class);
         go2reg.putExtra("username",txt_usr.getText().toString());   //自动为用户填充注册UI的用户名(从登录UI
         startActivity(go2reg);
+    }
+
+    public void btnHelp_Click(View view) {
+        Toast.makeText(this,"功能暂未开放,敬请期待",Toast.LENGTH_SHORT).show();
     }
 
     private class thread_valiUser extends AsyncTask<Void,String,Boolean>{
