@@ -1,5 +1,6 @@
 package com.example.schoolapp_android.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.schoolapp_android.R;
-import com.example.schoolapp_android.Son.OrderActivity;
+import com.example.schoolapp_android.Son.Shopitem_Activity;
 import com.example.schoolapp_android.extend.StoreAdapter;
 import com.example.schoolapp_android.extend.newsAdapter;
 
@@ -41,16 +42,25 @@ public class StoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        //获取userid
         Bundle bundle =this.getArguments();
          user=bundle.getString("username");
 
-            new thread_valiUser().execute();
-
 
         view = inflater.inflate(R.layout.fragment_store,container, false);
+
+
         return view;
     }
+    //窗体正确被启动时调用动态生成
+    @Override
+    public void onStart() {
+        super.onStart();
+
+            new thread_valiUser().execute();
+
+    }
+
     private class thread_valiUser extends AsyncTask<Void,String, ArrayList<JavaBean>> {
 
         @Override
@@ -65,6 +75,9 @@ public class StoreFragment extends Fragment {
         protected void onPostExecute(ArrayList<JavaBean> list) {
             super.onPostExecute(list);
             Storelist=list;
+            if(list.get(0).id!=null){
+                return;
+            }
             RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.store_list);
             //
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -75,24 +88,22 @@ public class StoreFragment extends Fragment {
             recyclerView.setHasFixedSize(true);
             recyclerView.setNestedScrollingEnabled(false);
             recyclerView.setAdapter(adapter);//设置适配器
+            adapter.setItemListener(new StoreAdapter.onRecyclerItemClickerListener() {
+                @Override
+                public void onRecyclerItemClick(View view, Object data, int position) {
+                    Intent intent=new Intent(getContext(),Shopitem_Activity.class);
+                    intent.putExtra("st_id",Storelist.get(position).st_id);
+                    intent.putExtra("user",user);
+                    startActivity(intent);
 
-            //取消自带的滚动
-            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1){
-                @Override
-                public boolean canScrollVertically() {
-                    return false;
                 }
             });
-            //————单击事件————————
-            adapter.setOnItemClickListener(new newsAdapter.OnItemClickListener() {
-                @Override
-                public void onClick(int position) {
-                    System.out.println(position);
-                }
-            });
+
+
 
 
         }
     }
+
 }
 

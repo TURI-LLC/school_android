@@ -52,9 +52,12 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:src="@drawable/ic_my_location_black_24dp"/>
     </LinearLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/store_list"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent">
     </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>

@@ -13,16 +13,18 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.schoolapp_android.R;
-import com.example.schoolapp_android.Son.LoopViewAdapter;
+import com.example.schoolapp_android.extend.LoopViewAdapter;
 import com.example.schoolapp_android.Son.kebiao_activity;
 import com.example.schoolapp_android.Son.news_pager;
-import com.example.schoolapp_android.Son.pagerOnClickListener;
+import com.example.schoolapp_android.extend.pagerOnClickListener;
 import com.example.schoolapp_android.extend.newsAdapter;
+import com.example.schoolapp_android.secondClassActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,11 +60,13 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home ,container, false);
-        ImageView imageView=view.findViewById(R.id.kechengbiao);
+        ImageButton kebiao=view.findViewById(R.id.kechengbiao);
+        ImageButton credit=view.findViewById(R.id.home_second_hous);
+        //获得用户名
         Bundle bundle =this.getArguments();
         username=bundle.getString("username");
         //课表页——————————————————
-        imageView.setOnClickListener(new View.OnClickListener(){
+        kebiao.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), kebiao_activity.class);
@@ -70,6 +74,16 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), secondClassActivity.class);
+                intent.putExtra("user",username);
+                startActivity(intent);
+            }
+        });
+
+
 
         initLoopView();
 
